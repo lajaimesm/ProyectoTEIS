@@ -23,10 +23,16 @@ Route::get('/wines/show/{id}', 'App\Http\Controllers\WineController@show')->name
 Route::get('/wines/delete/{id}', 'App\Http\Controllers\WineController@destroy')->name('wines.delete');
 
 // Routes vasitos
-Route::get('/vasitos/register', 'App\Http\Controllers\VasitosController@register')->name("vasitos.register");
-Route::post('/vasitos/upload', 'App\Http\Controllers\VasitosController@save')->name("vasitos.upload");
-Route::get('/vasitos/list', 'App\Http\Controllers\VasitosController@index')->name("vasitos.list");
-Route::get('/vasitos/show/{id}', 'App\Http\Controllers\VasitosController@show')->name("vasitos.show");
-Route::get('/vasitos/delete/{id}', 'App\Http\Controllers\VasitosController@destroy')->name('vasitos.delete');
+Route::get('/vasitos/register', 'App\Http\Controllers\VasitoController@register')->name("vasitos.register");
+Route::post('/vasitos/upload', 'App\Http\Controllers\VasitoController@save')->name("vasitos.upload");
+Route::get('/vasitos/list', 'App\Http\Controllers\VasitoController@index')->name("vasitos.list");
+Route::get('/vasitos/show/{id}', 'App\Http\Controllers\VasitoController@show')->name("vasitos.show");
+Route::get('/vasitos/delete/{id}', 'App\Http\Controllers\VasitoController@destroy')->name('vasitos.delete');
 
+//Routes Cart
+
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
 

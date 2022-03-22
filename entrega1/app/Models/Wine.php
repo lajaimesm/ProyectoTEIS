@@ -34,6 +34,7 @@ class Wine extends Model
         return $this->attributes['id'];
     }
 
+   
     public function setId($id)
     {
         $this->attributes['id'] = $id;
@@ -93,6 +94,6 @@ class Wine extends Model
     {
         $this->items = $items;
     }
-    
-   
+
+
 }

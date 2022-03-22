@@ -19,25 +19,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
-          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-          @guest
-          <a class="nav-link active" href="{{ route('login') }}">Login</a>
-          <a class="nav-link active" href="{{ route('register') }}">Register</a>
-
-          @else
-          <form id="logout" action="{{ route('logout') }}" method="POST">
-            <a role="button" class="nav-link active"
-               onclick="document.getElementById('logout').submit();">Logout</a>
-            @csrf
-          </form>
-          @if( auth::user()->type =='1' )
-            <a class="nav-link active" href="{{ route('wines.register') }}">Register Wines</a>
-            <a class="nav-link active" href="{{ route('vasitos.register') }}">Register Vasitos</a>
-          @endif
-          @endguest
-          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-
-
+          <a class="nav-link active" href="{{ route('home.about') }}">About</a>
+          <a class="nav-link active" href="{{ route('cart.index') }}">Cart</a>
         </div>
       </div>
     </div>
@@ -53,19 +36,6 @@
   <div class="container my-4">
     @yield('content')
   </div>
-
-  <!-- footer -->
-  <div class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>
-        Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-          href="https://twitter.com/danielgarax">
-          Daniel Correa
-        </a>
-      </small>
-    </div>
-  </div>
-  <!-- footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
   </script>
