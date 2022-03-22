@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Enter wine data</div>
+        <div class="card-header">Enter vasito data</div>
           <div class="card-body">
             @if($errors->any())
             <ul id="errors" class="alert alert-danger list-unstyled">
@@ -14,7 +14,7 @@
               @endforeach
             </ul>
             @endif
-            <form method="POST" action="{{ route('wines.upload') }}">
+            <form method="POST" action="{{ route('vasitos.upload') }}">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter type" name="type" value="{{ old('type') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
@@ -29,7 +29,5 @@
   </div>
 </div>
 @endsection
-@else
-<script>window.location = "{{ route('home.index') }}";</script>
 @endif
 
