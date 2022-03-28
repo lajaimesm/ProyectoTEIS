@@ -7,7 +7,7 @@
     <div class="col-md-12">
     <h1>Available products</h1>
     <ul>
-      @foreach($viewData["products"] as $key => $product)
+      @foreach($viewData["products"] as $product)
         <li>
           Type: {{ $product->getType() }}
           Amount: {{ $product->getAmount() }}
@@ -25,7 +25,7 @@
     <div class="col-md-12">
     <h1>Products in cart</h1>
       <ul>
-        @foreach($viewData["productsInCart"] as $key => $product)
+        @foreach($viewData["productsInCart"] as $product)
           <li>
             Type: {{ $product->getType() }}
             Price: {{ $product->getPrice() }}

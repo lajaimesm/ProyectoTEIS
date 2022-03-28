@@ -32,17 +32,18 @@ class VasitoController extends UserController
     public function save(Request $request)
     {
         Vasito::validate($request);
-        Vasito::create($request->only(["type","amount","price","discount"]));
+        Vasito::create($request->only(["type","amount","price"]));
         return view('vasitos.upload');
     }
 
     public function destroy($id)
     {
         if(Auth::user()->type =='1'){
-        Vasito::destroy($id);
-        return view('vastios.delete');}
-        else
-        return back();}
+            Vasito::destroy($id);
+            return view('vastios.delete');
+        }
+        return back();
+    }
 
 
 }

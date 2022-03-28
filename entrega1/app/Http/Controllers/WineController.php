@@ -32,17 +32,18 @@ class WineController extends UserController
     public function save(Request $request)
     {
         Wine::validate($request);
-        Wine::create($request->only(["type","amount","price","discount"]));
+        Wine::create($request->only(["type","amount","price"]));
         return view('wines.upload');
     }
 
     public function destroy($id) 
     {   
         if(Auth::user()->type =='1'){
-        Wine::destroy($id);
-        return view('wines.delete');}
-        else
-        return back();}
+            Wine::destroy($id);
+            return view('wines.delete');
+        }
+        return back();
+    }
     
 
 }

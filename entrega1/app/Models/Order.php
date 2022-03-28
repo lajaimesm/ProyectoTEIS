@@ -7,6 +7,14 @@ use App\Models\Item;
 
 class Order extends Model
 {
+
+    /**
+     * PRODUCT ATTRIBUTES
+     * $this->attributes['id'] - int - contains the order primary key (id)
+     * $this->attributes['total'] - int - contains the total of the order
+     * $this->items - items - contains the associated items
+    */
+
     public function getId()
     {
         return $this->attributes['id'];

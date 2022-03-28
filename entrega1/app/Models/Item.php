@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    use HasFactory;
-       /**
+    /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['description'] - string - contains the comment description
@@ -70,6 +69,20 @@ class Item extends Model
     public function setWine($wine)
     {
         $this->wine = $wine;
+    }
+
+    public function combo(){
+        return $this->belongsTo(Combo::class);
+    }
+
+    public function getCombo()
+    {
+        return $this->combo;
+    }
+
+    public function setCombo($combo)
+    {
+        $this->combo = $combo;
     }
 
 }

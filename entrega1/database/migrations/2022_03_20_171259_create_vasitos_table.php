@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('type');
             $table->integer('amount');
             $table->float('price');
-            $table->float('discount');
             $table->timestamps();
         });
     }

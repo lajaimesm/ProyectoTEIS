@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 namespace App\Models;
@@ -9,21 +12,23 @@ use App\Models\Item;
 class Vasito extends Model
 {
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['type'] - string - contains the product name
-     * $this->attributes['amount'] - int - contains the product amount
-     * $this->attributes['price'] - float - contains the product price
+     * COMBO ATTRIBUTES
+     * $this->attributes['id'] - int - contains the combo primary key (id)
+     * $this->attributes['type'] - string - contains the combo name
+     * $this->attributes['amount'] - int - contains the combo amount
+     * $this->attributes['price'] - float - contains the combo price
+     * $this->attributes['discount'] - float - contains the combo discount
     */
 
-    protected $fillable = ['type','amount','price'];
+    protected $fillable = ['type','amount','price','discount'];
 
     public static function validate($request)
     {
         $request->validate([
-            "type" => "required|max:255",
-            "amount" => "required|numeric|gte:0",
-            "price" => "required|numeric|gte:0",
+            "type" => "required",
+            "amount" => "required",
+            "price" => "required",
+            "discount" => "required"
         ]);
     }
     public function getId()
@@ -64,6 +69,17 @@ class Vasito extends Model
     public function setPrice($price)
     {
         $this->attributes['price'] = $price;
+
+    }
+
+    public function getDiscount()
+    {
+        return $this->attributes['discount'];
+    }
+
+    public function setDiscount($discount)
+    {
+        $this->attributes['discount'] = $discount;
     }
 
     public function item()

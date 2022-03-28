@@ -8,25 +8,23 @@ use App\Models\Item;
 
 class Wine extends Model
 {
-    use HasFactory;
-        /**
+    
+    /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['type'] - string - contains the product name
      * $this->attributes['amount'] - int - contains the product amount
      * $this->attributes['price'] - float - contains the product price
-     * $this->attributes['discount'] - float - contains the product discount
     */
 
-    protected $fillable = ['type','amount','price','discount'];
+    protected $fillable = ['type','amount','price'];
 
     public static function validate($request)
     {
         $request->validate([
-            "type" => "required",
-            "amount" => "required",
-            "price" => "required",
-            "discount" => "required"
+            "type" => "required|max:255",
+            "amount" => "required|numeric|gte:0",
+            "price" => "required|numeric|gte:0",
         ]);
     }
     public function getId()
@@ -68,16 +66,6 @@ class Wine extends Model
     public function setPrice($price)
     {
         $this->attributes['price'] = $price;
-    }
-
-    public function getDiscount()
-    {
-        return $this->attributes['discount'];
-    }
-
-    public function setDiscount($discount)
-    {
-        $this->attributes['discount'] = $discount;
     }
 
     public function item()
