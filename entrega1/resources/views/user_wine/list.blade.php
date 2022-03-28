@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts_user.app')
 @section('content')
 <div class="row">
   @foreach ($viewData["wines"] as $wine)
@@ -6,7 +6,7 @@
     <div class="card">
       <div class="card-body text-center">
         <a href="{{ route('wines.show', ['id'=> $wine->getId()]) }}"
-          class="btn bg-primary text-black">Name: {{ $wine->getName()}} Id: {{ $wine->getId()}}</a>
+          class="btn bg-primary text-black">type: {{ $wine->getType()}} id: {{ $wine->getId()}}</a>
       </div>
     </div>
   </div>

@@ -6,29 +6,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Item;
 
-class Wine extends Model
+class Vasito extends Model
 {
     use HasFactory;
         /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['name'] - string - contains the product name
-     * $this->attributes['type'] - string - contains the product type
      * $this->attributes['amount'] - int - contains the product amount
      * $this->attributes['price'] - float - contains the product price
      * $this->attributes['discount'] - float - contains the product discount
     */
 
-    protected $fillable = ['name','type','amount','price','discount'];
+    protected $fillable = ['name','amount','price','discount','description'];
 
     public static function validate($request)
     {
         $request->validate([
             "name" => "required",
-            "type" => "required",
             "amount" => "required",
             "price" => "required",
-            "discount" => "required"
+            "discount" => "required",
+            "description"=> "required"
         ]);
     }
     public function getId()
@@ -41,6 +40,15 @@ class Wine extends Model
         $this->attributes['id'] = $id;
     }
 
+    public function getDescription()
+    {
+        return $this->attributes['description'];
+    }
+
+    public function setDescription($description)
+    {
+        $this->attributes['description'] = $description;
+    }
     public function getName()
     {
         return $this->attributes['name'];
@@ -49,16 +57,6 @@ class Wine extends Model
     public function setName($name)
     {
         $this->attributes['name'] = $name;
-    }
-
-    public function getType()
-    {
-        return $this->attributes['type'];
-    }
-
-    public function setType($type)
-    {
-        $this->attributes['type'] = $type;
     }
 
     public function getAmount()
