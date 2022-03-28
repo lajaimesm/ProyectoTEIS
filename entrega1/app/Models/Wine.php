@@ -8,23 +8,26 @@ use App\Models\Item;
 
 class Wine extends Model
 {
-    
+
     /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['type'] - string - contains the product name
+     * $this->attributes['name'] - string - contains the product name
+     * $this->attributes['type'] - string - contains the product type
      * $this->attributes['amount'] - int - contains the product amount
      * $this->attributes['price'] - float - contains the product price
     */
 
-    protected $fillable = ['type','amount','price'];
+    protected $fillable = ['name','type','amount','price','discount'];
 
     public static function validate($request)
     {
         $request->validate([
-            "type" => "required|max:255",
-            "amount" => "required|numeric|gte:0",
-            "price" => "required|numeric|gte:0",
+            "name" => "required",
+            "type" => "required",
+            "amount" => "required",
+            "price" => "required",
+            "discount" => "required"
         ]);
     }
     public function getId()
@@ -36,6 +39,16 @@ class Wine extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+
+    public function getName()
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName($name)
+    {
+        $this->attributes['name'] = $name;
     }
 
     public function getType()

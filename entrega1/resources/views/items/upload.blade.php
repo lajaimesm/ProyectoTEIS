@@ -1,4 +1,3 @@
-@if(!is_null(auth::user()) && auth::user()->type =='1' )
 @extends('home.index')
 @section('content')
 <div class="container">
@@ -14,13 +13,9 @@
               @endforeach
             </ul>
             @endif
-            <form method="POST" action="{{ route('wines.upload') }}">
+            <form method="POST" action="{{ route('items.upload') }}">
               @csrf
-              <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter type" name="type" value="{{ old('type') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter price" name="price" value="{{ old('price') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter discount" name="discount" value="{{ old('discount') }}" />
               <input type="submit" class="btn btn-primary" value="Register" />
             </form>
           </div>
@@ -30,7 +25,3 @@
   </div>
 </div>
 @endsection
-@else
-<script>window.location = "{{ route('home.index') }}";</script>
-@endif
-

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
 class Item extends Model
 {
     /**
@@ -27,24 +26,29 @@ class Item extends Model
         $this->attributes['id'] = $id;
     }
 
-    public function getAmount()
+    public function getPrice()
     {
-        return $this->attributes['amount'];
+        return $this->attributes['price'];
     }
 
-    public function setAmount($amount)
+    public function setPrice($price)
     {
-        $this->attributes['amount'] = $amount;
+        $this->attributes['price'] = $price;
     }
 
-    public function getSubtotal()
+    public function setQuantity($quanitity)
     {
-        return $this->attributes['subtotal'];
+        $this->attributes['quantity'] = $quanitity;
     }
 
-    public function setSubtotal($subtotal)
+    public function getQuantity()
     {
-        $this->attributes['subtotal'] = $subtotal;
+        return $this->attributes['quantity'];
+    }
+
+    public function setWineId($wine_id)
+    {
+        $this->attributes['wine_id'] = $wine_id;
     }
 
     public function getWineId()
@@ -52,23 +56,55 @@ class Item extends Model
         return $this->attributes['wine_id'];
     }
 
-    public function setWineId($pId)
+    public function setVasitoId($vasito_id)
     {
-        $this->attributes['wine_id'] = $pId;
+        $this->attributes['vasito_id'] = $vasito_id;
     }
 
-    public function wine(){
+    public function getVasitoId()
+    {
+        return $this->attributes['vasito_id'];
+    }
+
+    public function getOrderId()
+    {
+        return $this->attributes['order_id'];
+    }
+
+    public function setOrderId($order_id)
+    {
+        $this->attributes['order_id'] = $order_id;
+    }
+
+    public function getComboId()
+    {
+
+        return $this->attributes['combo_id'];
+    }
+
+    public function setComboId($combo_id)
+    {
+
+        $this->attributes['combo_id'] = $combo_id;
+    }
+
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
+
+    public function wine()
+    {
         return $this->belongsTo(Wine::class);
     }
-
-    public function getWine()
+    
+    public function vasito()
     {
-        return $this->wine;
+        return $this->belongsTo(Vasito::class);
     }
 
-    public function setWine($wine)
+    public function combo()
     {
-        $this->wine = $wine;
+        return $this->belongsTo(Combo::class);
     }
 
     public function combo(){

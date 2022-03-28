@@ -5,8 +5,8 @@
   <div class="col-md-4 col-lg-3 mb-3">
     <div class="card">
       <div class="card-body text-center">
-        <a href="{{ route('wines.show', ['id'=> $wine->getId()]) }}"
-          class="btn bg-primary text-black">Name: {{ $wine->getName()}} Id: {{ $wine->getId()}}</a>
+        <a href="{{ route('orders.show', ['id'=> $order->getId()]) }}"
+          class="btn bg-primary text-black">Name: {{ $order->getName()}} Id: {{ $order->getId()}}</a>
       </div>
     </div>
   </div>

@@ -34,7 +34,6 @@ class User extends Authenticatable
         'type'
     ];
 
-    
     public function getType()
     {
         return $this->attributes['type'];
