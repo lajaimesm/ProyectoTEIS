@@ -2,19 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['description'] - string - contains the comment description
-     * $this->product - Product - contains the associated Product
+     * ITEM ATTRIBUTES
+     * $this->attributes['id'] - int - contains the item primary key (id)
+     * $this->attributes['amount'] - int - contains the item amount
+     * $this->attributes['subtotal'] - float - contains the subtotal
+     * $this->attributes['discount'] - float - contains the discount
+     * $this->attributes['vasito_id'] - int - contains the vasito foreign key
+     * $this->attributes['order_id'] - int - contains the order foreign key
+     * $this->attributes['wine_id'] - int - contains the wine foreign key
+     * $this->attributes['combo_id'] - int - contains the combo foreign key
+     * $this->vasitos - vasitos - contains the associated vasitos
+     * $this->wines - wines - contains the associated wines
+     * $this->combos - combos - contains the associated combos
     */
 
-    protected $fillable = ['amount', 'wine_id'];
+    protected $fillable = ['amount', 'subtotal', 'discount', 'order_id'];
 
     public function getId()
     {
@@ -26,24 +33,34 @@ class Item extends Model
         $this->attributes['id'] = $id;
     }
 
-    public function getPrice()
+    public function getSubtotal()
     {
-        return $this->attributes['price'];
+        return $this->attributes['subtotal'];
     }
 
-    public function setPrice($price)
+    public function setSubtotal($subtotal)
     {
-        $this->attributes['price'] = $price;
+        $this->attributes['subtotal'] = $subtotal;
     }
 
-    public function setQuantity($quanitity)
+    public function setAmount($amount)
     {
-        $this->attributes['quantity'] = $quanitity;
+        $this->attributes['amount'] = $amount;
     }
 
-    public function getQuantity()
+    public function getAmount()
     {
-        return $this->attributes['quantity'];
+        return $this->attributes['amount'];
+    }
+
+    public function setDiscount($discount)
+    {
+        $this->attributes['discount'] = $discount;
+    }
+
+    public function getDiscount()
+    {
+        return $this->attributes['discount'];
     }
 
     public function setWineId($wine_id)
@@ -78,17 +95,16 @@ class Item extends Model
 
     public function getComboId()
     {
-
         return $this->attributes['combo_id'];
     }
 
     public function setComboId($combo_id)
     {
-
         $this->attributes['combo_id'] = $combo_id;
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
 
@@ -106,19 +122,4 @@ class Item extends Model
     {
         return $this->belongsTo(Combo::class);
     }
-
-    public function combo(){
-        return $this->belongsTo(Combo::class);
-    }
-
-    public function getCombo()
-    {
-        return $this->combo;
-    }
-
-    public function setCombo($combo)
-    {
-        $this->combo = $combo;
-    }
-
 }

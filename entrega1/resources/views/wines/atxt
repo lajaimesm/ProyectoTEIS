@@ -1,0 +1,50 @@
+@if(!is_null(auth::user()) && auth::user()->type =='1' )
+@extends('home.index')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Enter wine viewdata</div>
+                <div class="card-body">
+                    @if($errors->any())
+                    <ul id="errors" class="alert alert-danger list-unstyled">
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
+                    <form method="POST" action="{{ route('wines.update') }}" enctype="multipart/form-viewdata">
+                        @csrf
+                        <div class="form-group">
+                            <input type="hidden" name="id" value="{{ $viewdata['wine']->getId() }}">
+
+                            <label for="exampleInputName">Name</label>
+                            <input type="text" class="form-control" name="name" aria-describedby="nameHelp"
+                                placeholder="Name" value="{{ $viewdata['wine']->getName() }}">
+
+                            <label for="exampleInputPrice">Price</label>
+                            <input type="numeric" class="form-control" name="price" aria-describedby="nameHelp"
+                                placeholder="Price" value="{{ $viewdata['wine']->getPrice() }}">
+
+                            <div class="mb-3 mt-2">
+                                <label for="formFile" class="form-label">image</label>
+                                <input class="form-control" type="file" id="formFile"
+                                    value="{{ $viewdata['wine']->getImage }}" name="image">
+                            </div>
+                            <br>
+                            <input class="btn btn-success" type="submit" value="Aja" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+@endsection
+@else
+<script>
+window.location = "{{ route('home.index') }}";
+</script>
+@endif

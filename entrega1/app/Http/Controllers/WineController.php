@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Wine;
-use App\Models\User;
 use Auth;
 
 class WineController extends Controller
@@ -12,11 +11,12 @@ class WineController extends Controller
     public function index()
     {
         $viewData = [];
-        $viewData["wines"]= Wine::orderBy('id','DESC')->get();
-        if(!is_null(Auth::user()) && Auth::user()->type =='1')
+        $viewData["wines"] = Wine::orderBy('id', 'DESC')->get();
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
             return view('wines.list')->with("viewData", $viewData);
-        else 
+        } else {
             return view('user_wine.list')->with("viewData", $viewData);
+        }
     }
 
     public function show($id)
@@ -24,42 +24,67 @@ class WineController extends Controller
         $viewData = [];
         $wine = Wine::findOrFail($id);
         $viewData["wine"] = $wine;
-        if(!is_null(Auth::user()) && Auth::user()->type =='1')
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
             return view('wines.show')->with("viewData", $viewData);
-        else 
+        } else {
             return view('user_wine.show')->with("viewData", $viewData);
-        
+        }
     }
+
     public function register()
     {
-        if(!is_null(Auth::user()) && Auth::user()->type =='1'){
-        $viewData = []; //to be sent to the view
-        return view('wines.register')->with("viewData",$viewData);
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('wines.register');
+        } else {
+            return view('home.index');
         }
-        else
-        return view('home.index');
-    }   
+    }
 
     public function save(Request $request)
     {
-        if(!is_null(Auth::user()) && Auth::user()->type =='1'){
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
             Wine::validate($request);
-            Wine::create($request->only(["name","type","amount","price","discount"]));
+            Wine::create($request->only(["name","amount","price","image","discount"]));
             return view('wines.upload');
+        } else {
+            return view('home.index');
         }
-        else
-        return back();
     }
 
-    public function destroy($id) 
-    {   
-        if(!is_null(Auth::user()) && Auth::user()->type =='1'){
-        Wine::destroy($id);
-        return view('wines.delete');
+    public function update($id)
+    {
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            $viewData = [];
+            $wine = Wine::findOrFail($id);
+            $viewData["wine"] = $wine;
+            return view('wines.update')->with("viewData", $viewData);
+        } else {
+            return view('home.index');
         }
-        else
-        return back();
     }
-    
 
+    public function updated(Request $request)
+    {
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            $data = $request->only(["id","name","amount","price","image","discount"]);
+            $wine = Wine::findOrFail($data["id"]);
+            foreach ($data as $key => $datico) {
+                $wine[$key] = $datico;
+            }
+            $wine->save();
+            return view('wines.updated');
+        } else {
+            return view('home.index');
+        }
+    }
+
+    public function destroy($id)
+    {
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            Wine::destroy($id);
+            return view('wines.delete');
+        } else {
+            return view('home.index');
+        }
+    }
 }

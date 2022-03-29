@@ -12,7 +12,7 @@ class VasitoController extends UserController
     public function index()
     {
         $viewData = [];
-        $viewData["vasitos"]= Vasito::orderBy('id','DESC')->get();
+        $viewData["vasitos"]= Vasito::orderBy('id', 'DESC')->get();
         return view('wines.list')->with("viewData", $viewData);
     }
 
@@ -26,7 +26,7 @@ class VasitoController extends UserController
     public function register()
     {
         $viewData = []; //to be sent to the view
-        return view('vasitos.register')->with("viewData",$viewData);
+        return view('vasitos.register')->with("viewData", $viewData);
     }
 
     public function save(Request $request)
@@ -38,12 +38,10 @@ class VasitoController extends UserController
 
     public function destroy($id)
     {
-        if(Auth::user()->type =='1'){
+        if (Auth::user()->type =='1') {
             Vasito::destroy($id);
             return view('vastios.delete');
         }
         return back();
     }
-
-
 }

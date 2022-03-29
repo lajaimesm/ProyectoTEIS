@@ -30,6 +30,7 @@
                onclick="document.getElementById('logout').submit();">Logout</a>
             @csrf
           </form>
+          <a class="nav-link active" href="{{ route('vasitos.register') }}">Register Vasitos</a>
           <a class="nav-link active" href="{{ route('wines.register') }}">Register Wines</a>
           <a class="nav-link active" href="{{ route('cart.index') }}">Cart</a>
           @endguest

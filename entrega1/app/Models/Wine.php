@@ -2,34 +2,39 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Item;
+use App\Models\Combo;
 
 class Wine extends Model
 {
 
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['name'] - string - contains the product name
-     * $this->attributes['type'] - string - contains the product type
-     * $this->attributes['amount'] - int - contains the product amount
-     * $this->attributes['price'] - float - contains the product price
+     * WINES ATTRIBUTES
+     * $this->attributes['id'] - int - contains the wine primary key (id)
+     * $this->attributes['name'] - string - contains the wine name
+     * $this->attributes['amount'] - int - contains the wine amount
+     * $this->attributes['price'] - float - contains the wine price
+     * $this->attributes['image'] - string - contains the wine url image
+     * $this->attributes['discount'] - float - contains the wine discount
+     * $this->attributes['item_id'] - int - contains the item foreign key
+     * $this->items - items - contains the associated items
+     * $this->combo - combos - contains the associated combos
     */
 
-    protected $fillable = ['name','type','amount','price','discount'];
+    protected $fillable = ['name','amount','price','image','discount'];
 
     public static function validate($request)
     {
         $request->validate([
-            "name" => "required",
-            "type" => "required",
-            "amount" => "required",
-            "price" => "required",
-            "discount" => "required"
+            "name" => "required|max:255",
+            "amount" => "required|numeric|gte:0",
+            "price" => "required|numeric|gte:0",
+            "image" => "required|url",
+            "discount" => "required|gte:0|max:0.99"
         ]);
     }
+
     public function getId()
     {
         return $this->attributes['id'];
@@ -49,16 +54,6 @@ class Wine extends Model
     public function setName($name)
     {
         $this->attributes['name'] = $name;
-    }
-
-    public function getType()
-    {
-        return $this->attributes['type'];
-    }
-
-    public function setType($type)
-    {
-        $this->attributes['type'] = $type;
     }
 
     public function getAmount()
@@ -81,6 +76,26 @@ class Wine extends Model
         $this->attributes['price'] = $price;
     }
 
+    public function getDiscount()
+    {
+        return $this->attributes['discount'];
+    }
+
+    public function setDiscount($discount)
+    {
+        $this->attributes['discount'] = $discount;
+    }
+
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
+    }
+
     public function item()
     {
         return $this->hasMany(Item::class);
@@ -96,5 +111,18 @@ class Wine extends Model
         $this->items = $items;
     }
 
+    public function combo()
+    {
+        return $this->hasMany(Combo::class);
+    }
 
+    public function getCombo()
+    {
+        return $this->combo;
+    }
+
+    public function setCombo($combo)
+    {
+        $this->combo = $combo;
+    }
 }

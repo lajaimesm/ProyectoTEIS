@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Wine;
 use App\Models\Order;
@@ -14,25 +15,18 @@ class CartController extends Controller
         $wines = Wine::all();
         $productsInCart = [];
         $ids = $request->session()->get("wines"); //we get the ids of the products stored in session
-        if($ids){
+        if ($ids) {
             $productsInCart = Wine::findMany(array_keys($ids));
-            /*foreach ($wines as $key => $wine) {
-                if(in_array($key, array_keys($ids))){
-                    $productsInCart[$key] = $wine;
-                }
-            }*/
         }
-
+        
         $viewData = [];
-        $viewData["title"] = "Cart - Online Store";
-        $viewData["subtitle"] =  "Shopping Cart";
         $viewData["wines"] = $wines;
         $viewData["productsInCart"] =$productsInCart;
-        if(!is_null(Auth::user()) && Auth::user()->type =='1'){
-            return view('cart.index_admin')->with("viewData",$viewData);
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('cart.index_admin')->with("viewData", $viewData);
+        } else {
+            return view('cart.index')->with("viewData", $viewData);
         }
-        else
-            return view('cart.index')->with("viewData",$viewData);
     }
 
     public function add($id, Request $request)
@@ -67,8 +61,7 @@ class CartController extends Controller
 
         $order->setTotal($total);
         $order->save();
-        return view('order.show')->with("order",$order);
-
+        return view('order.show')->with("order", $order);
     }
 
     public function removeAll(Request $request)
