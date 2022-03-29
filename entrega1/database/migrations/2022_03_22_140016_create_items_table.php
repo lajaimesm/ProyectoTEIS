@@ -15,16 +15,17 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->integer('price');
-            $table->integer('quantity');
+            $table->integer('amount');
+            $table->float('subtotal');
+            $table->float('discount');
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('wine_id');
-            $table->foreign('wine_id')->references('id')->on('wines');
-            //$table->unsignedBigInteger('vasito_id');
-            //$table->foreign('vasito_id')->references('id')->on('vasitos');
-            //$table->unsignedBigInteger('combo_id');
-            //$table->foreign('combo_id')->references('id')->on('combos');
+            $table->foreign('wine_id')->references('id')->on('wines')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('vasito_id');
+            $table->foreign('vasito_id')->references('id')->on('vasitos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('combo_id');
+            $table->foreign('combo_id')->references('id')->on('combos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
