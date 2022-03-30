@@ -1,7 +1,19 @@
 {
-    "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
-    "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
-    "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
-    "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
-    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute."
+    "homeLayout": "Home",
+    "registerUser": "Register",
+    "loginUser": "Login",
+    "logOutUser": "Logout",
+
+    "registerVasitos": "Register Vasitos",
+    "registerWines": "Register Wines",
+    "vasitosList": "Vasitos",
+    "winesList": "Wines",
+
+    "lowPriceVasito": "Low Price Vasito",
+    "highDiscountWines": "High Discount Wines",
+    "cart": "Cart",
+    "searchWinesNames": "Search Wines Names",
+    "searchVasitosPrices": "Search Vasitos Prices"
+
+
 }
