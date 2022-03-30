@@ -13,13 +13,8 @@
         <p class="card-text">Discount: {{ $viewData["vasito"]->getDiscount() }}</p>
         <p class="card-text">Description: {{ $viewData["vasito"]->getDescription() }}</p>
       </div>
-        <button  type="button" >
-          <a href="{{ route('vasitos.delete', ['id'=> $viewData['vasito']->getId()]) }}">Delete</a>
-        </button>
-        <button  type="button" >
-          <a href="{{ route('vasitos.update', ['id'=> $viewData['vasito']->getId()]) }}">Update</a>
-        </button>
     </div>
   </div>
 </div>
 @endsection
+

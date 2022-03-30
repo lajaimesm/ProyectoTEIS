@@ -1,3 +1,19 @@
 {
-    "Home": "Home"
+    "homeLayout": "Home",
+    "registerUser": "Register",
+    "loginUser": "Login",
+    "logOutUser": "Logout",
+
+    "registerVasitos": "Register Vasitos",
+    "registerWines": "Register Wines",
+    "vasitosList": "Vasitos",
+    "winesList": "Wines",
+
+    "lowPriceVasito": "Low Price Vasito",
+    "highDiscountWines": "High Discount Wines",
+    "cart": "Cart",
+    "searchWinesNames": "Search Wines Names",
+    "searchVasitosPrices": "Search Vasitos Prices"
+
+
 }

@@ -1,4 +1,3 @@
-@if( !is_null( auth::user()) &&  auth::user()->type =='1')
 @extends('home.index')
 @section('content')
 <div class="container">
@@ -16,10 +15,12 @@
             @endif
             <form method="POST" action="{{ route('vasitos.upload') }}">
               @csrf
-              <input type="text" class="form-control mb-2" placeholder="Enter type" name="type" value="{{ old('type') }}" />
+              <input type="text" class="form-control mb-2" placeholder="Enter Name" name="name" value="{{ old('name') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter price" name="price" value="{{ old('price') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter discount" name="discount" value="{{ old('discount') }}" />
+              <input type="text" class="form-control mb-2" placeholder="Enter description" name="description" value="{{ old('description') }}" />
+              <input type="text" class="form-control mb-2" placeholder="Enter image" name="image" value="{{ old('image') }}" />
               <input type="submit" class="btn btn-primary" value="Register" />
             </form>
           </div>
@@ -29,5 +30,4 @@
   </div>
 </div>
 @endsection
-@endif
 

@@ -1,6 +1,6 @@
 @extends('home.index')
 @section('content')
 <div class="text-center">
-Elemento creado satisfactoriamente
+    Element Created successfully
 </div>
 @endsection
