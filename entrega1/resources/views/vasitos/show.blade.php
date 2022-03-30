@@ -5,19 +5,19 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-          Name: {{ $viewData["vasito"]->getName() }}
+        {{__('name')}}: {{ $viewData["vasito"]->getName() }}
         </h5>
         <img src= {{ $viewData["vasito"]->getImage() }} >
-        <p class="card-text">Amount: {{ $viewData["vasito"]->getAmount() }}</p>
-        <p class="card-text">Price: {{ $viewData["vasito"]->getPrice() }}</p>
-        <p class="card-text">Discount: {{ $viewData["vasito"]->getDiscount() }}</p>
-        <p class="card-text">Description: {{ $viewData["vasito"]->getDescription() }}</p>
+        <p class="card-text">{{__('amount')}}: {{ $viewData["vasito"]->getAmount() }}</p>
+        <p class="card-text">{{__('price')}}: {{ $viewData["vasito"]->getPrice() }}</p>
+        <p class="card-text">{{__('discount')}}: {{ $viewData["vasito"]->getDiscount() }}</p>
+        <p class="card-text">{{__('description')}}: {{ $viewData["vasito"]->getDescription() }}</p>
       </div>
         <button  type="button" >
-          <a href="{{ route('vasitos.delete', ['id'=> $viewData['vasito']->getId()]) }}">Delete</a>
+          <a href="{{ route('vasitos.delete', ['id'=> $viewData['vasito']->getId()]) }}">{{__('delete')}}</a>
         </button>
         <button  type="button" >
-          <a href="{{ route('vasitos.update', ['id'=> $viewData['vasito']->getId()]) }}">Update</a>
+          <a href="{{ route('vasitos.update', ['id'=> $viewData['vasito']->getId()]) }}">{{__('update')}}</a>
         </button>
     </div>
   </div>

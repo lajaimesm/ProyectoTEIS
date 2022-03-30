@@ -51,17 +51,18 @@ class CartController extends Controller
 
         foreach ($wines as $key => $wine) {
             $item = new Item();
-            $item->setQuantity(1);
+            $item->setAmount(1);
             $item->setWineId($wine->getId());
-            $item->setPrice($wine->getPrice());
+            $item->setSubtotal($wine->getPrice());
             $item->setOrderId($order->getId());
+            $item->setDiscount($wine->getDiscount());
             $item->save();
             $total = $total + $wine->getPrice();
         }
 
         $order->setTotal($total);
         $order->save();
-        return view('order.show')->with("order", $order);
+        dd('productos comprados papi');
     }
 
     public function removeAll(Request $request)

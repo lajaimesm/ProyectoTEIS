@@ -23,20 +23,23 @@
           <a class="nav-link active" href="{{ route('home.index') }}">{{__('Home') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           @guest
-          <a class="nav-link active" href="{{ route('login') }}">Login</a>
-          <a class="nav-link active" href="{{ route('register') }}">Register</a>
+          <a class="nav-link active" href="{{ route('login') }}">{{__('loginUser') }}</a>
+          <a class="nav-link active" href="{{ route('register') }}">{{__('registerUser') }}</a>
           
           @else
           <form id="logout" action="{{ route('logout') }}" method="POST">
             <a role="button" class="nav-link active"
-               onclick="document.getElementById('logout').submit();">Logout</a>
+               onclick="document.getElementById('logout').submit();">{{__('logOutUser') }}</a>
             @csrf
           </form>
-          <a class="nav-link active" href="{{ route('user_vasitos.list') }}">Vasitos</a>
-          <a class="nav-link active" href="{{ route('user_wines.list') }}">Wines</a>
-          <a class="nav-link active" href="{{ route('cart.index') }}">Cart</a>
-          <a class="nav-link active" href="{{ route('vasitos.lowPrice') }}">Low Price Vasito</a>
-          <a class="nav-link active" href="{{ route('wines.highDiscount') }}">High Discount Wines</a>
+          <a class="nav-link active" href="{{ route('user_vasitos.list') }}">{{__('vasitosList') }}</a>
+          <a class="nav-link active" href="{{ route('user_wines.list') }}"> {{__('winesList') }}</a>
+          <a class="nav-link active" href="{{ route('vasitos.lowPrice') }}">{{__('lowPriceVasito') }}</a>
+          <a class="nav-link active" href="{{ route('wines.highDiscount') }}">{{__('highDiscountWines') }}</a>
+          <a class="nav-link active" href="{{ route('user_vasitos.searchPriceConsult') }}">{{__('searchVasitosPrices') }}</a>
+          <a class="nav-link active" href="{{ route('user_wines.nameSearchConsult') }}">{{__('searchWinesNames') }}</a>
+          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+          <a class="nav-link active" href="{{ route('cart.index') }}">{{__('cart') }}</a>
           @endguest
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           
@@ -45,22 +48,6 @@
       </div>
     </div>
   </nav>
-  <h6>Search Wines Names</h6>
-  <div class="input-group rounded">
-    <form action="{{ route('wines.nameSearch') }}" method="GET">
-      <input type="text" placeholder="Enter your search" name="search" aria-describedby="search-addon" required/>
-      <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
-
-  <div>
-  <h6>Search Vasitos Prices</h6>
-  <form action="{{ route('vasitos.searchPrice') }}" method="GET">
-    <input type="numeric" name="min" placeholder="Minimun" required/>
-    <input type="numeric" name="max" placeholder="Maximun" required/>
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
-  </div>
 
   <!-- header -->
 

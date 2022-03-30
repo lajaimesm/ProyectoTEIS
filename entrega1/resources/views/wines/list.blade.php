@@ -7,7 +7,7 @@
     <img src= {{ $wine->getImage() }} >
       <div class="card-body text-center">
         <a href="{{ route('wines.show', ['id'=> $wine->getId()]) }}"
-          class="btn bg-primary text-black">Name: {{ $wine->getName()}} Id: {{ $wine->getId()}}</a>
+          class="btn bg-primary text-black">{{__('name')}}: {{ $wine->getName()}} {{__('id')}}: {{ $wine->getId()}}</a>
       </div>
     </div>
   </div>

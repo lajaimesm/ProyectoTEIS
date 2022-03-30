@@ -92,7 +92,12 @@ class WineController extends Controller
     {
         $viewData = [];
         $viewData["wines"] = Wine::orderBy('discount', 'DESC')->get();
-        return view('wines.highDiscount')->with("viewData", $viewData);
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('wines.highDiscount')->with("viewData", $viewData);
+        } else {
+            return view('wines.highDiscount')->with("viewData", $viewData);
+        }
+
     }
 
     public function wineNameSearch(Request $request)
@@ -101,6 +106,19 @@ class WineController extends Controller
         $search = $request->input('search');
         $viewData["wines"] = Wine::query()->where('name', 'LIKE', "%{$search}%")
         ->orWhere('price', 'LIKE', "%{$search}%")->get();
-        return view('wines.nameSearch')->with("viewData", $viewData);
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('wines.nameSearch')->with("viewData", $viewData);
+        } else{
+            return view('user_wines.nameSearch')->with("viewData", $viewData);
+        }
+    }
+
+    public function wineNameSearchConsult()
+    {
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('wines.nameSearchConsult');
+        } else{
+            return view('user_wines.nameSearchConsult');
+        }
     }
 }

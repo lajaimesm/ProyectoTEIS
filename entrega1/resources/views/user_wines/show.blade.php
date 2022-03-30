@@ -5,12 +5,12 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-          Name: {{ $viewData["wine"]->getName() }}
+        {{__('name') }}: {{ $viewData["wine"]->getName() }}
         </h5>
         <img src= {{ $viewData["wine"]->getImage() }} >
-        <p class="card-text">Amount: {{ $viewData["wine"]->getAmount() }}</p>
-        <p class="card-text">Price: {{ $viewData["wine"]->getPrice() }}</p>
-        <p class="card-text">Discount: {{ $viewData["wine"]->getDiscount() }}</p>
+        <p class="card-text">{{__('amount') }}: {{ $viewData["wine"]->getAmount() }}</p>
+        <p class="card-text">{{__('price') }}: {{ $viewData["wine"]->getPrice() }}</p>
+        <p class="card-text">{{__('discount') }}: {{ $viewData["wine"]->getDiscount() }}</p>
       </div>
     </div>
   </div>

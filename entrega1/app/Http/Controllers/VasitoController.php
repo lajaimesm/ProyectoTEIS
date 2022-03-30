@@ -83,7 +83,12 @@ class VasitoController extends Controller
         $viewData = [];
         $vasitos = Vasito::orderBy('price')->take(3)->get();
         $viewData["vasitos"] = $vasitos;
-        return view('vasitos.lowPrice')->with("viewData", $viewData);
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('vasitos.lowPrice')->with("viewData", $viewData);
+        }else {
+            return view('vasitos.lowPrice')->with("viewData", $viewData);
+        }
+        
     }
 
     public function destroy($id)
@@ -103,6 +108,20 @@ class VasitoController extends Controller
         $min = $request->input('min');
         $viewData["vasitos"] = Vasito::query()->where('price', '>=', "{$min}")
         ->where('price', '<=', "{$max}")->get();
-        return view('vasitos.searchPrice')->with("viewData", $viewData);
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('vasitos.searchPrice')->with("viewData", $viewData);
+        } else{
+            return view('user_vasitos.searchPrice')->with("viewData", $viewData);;
+        }
+
+    }
+
+    public function vasitoSearchPriceConsult()
+    {
+        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
+            return view('vasitos.searchPriceConsult');
+        } else {
+            return view('user_vasitos.searchPriceConsult');
+        }
     }
 }

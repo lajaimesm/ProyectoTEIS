@@ -39,6 +39,9 @@
           <a class="nav-link active" href="{{ route('wines.list') }}">{{__('winesList') }}</a>
           <a class="nav-link active" href="{{ route('vasitos.lowPrice') }}">{{__('lowPriceVasito') }}</a>
           <a class="nav-link active" href="{{ route('wines.highDiscount') }}">{{__('highDiscountWines') }}</a>
+          <a class="nav-link active" href="{{ route('vasitos.searchPriceConsult') }}">{{__('searchVasitosPrices') }}</a>
+          <a class="nav-link active" href="{{ route('wines.nameSearchConsult') }}">{{__('searchWinesNames') }}</a>
+          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           <a class="nav-link active" href="{{ route('cart.index') }}">{{__('cart') }}</a>
           @endguest
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
@@ -48,23 +51,7 @@
       </div>
     </div>
   </nav>
-  <h6>{{__('searchWinesNames') }}</h6>
-  <div class="input-group rounded">
-    <form action="{{ route('wines.nameSearch') }}" method="GET">
-      <input type="text" placeholder="Enter your search" name="search" aria-describedby="search-addon" required/>
-      <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
 
-  <div>
-  <h6>{{__('searchVasitosPrices') }}</h6>
-  <form action="{{ route('vasitos.searchPrice') }}" method="GET">
-    <input type="numeric" name="min" placeholder="Minimun" required/>
-    <input type="numeric" name="max" placeholder="Maximun" required/>
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
-  </div>
-  
   <!-- header -->
 
   <div class="container my-4">

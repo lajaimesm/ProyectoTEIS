@@ -7,7 +7,7 @@
     <img src= {{ $vasito->getImage() }} >
       <div class="card-body text-center">
         <a href="{{ route('vasitos.show', ['id'=> $vasito->getId()]) }}"
-          class="btn bg-primary text-black">Name: {{ $vasito->getName()}} Price: {{ $vasito->getPrice()}}</a>
+          class="btn bg-primary text-black">{{__('name')}}: {{ $vasito->getName()}} {{__('price')}}: {{ $vasito->getPrice()}}</a>
       </div>
     </div>
   </div>
