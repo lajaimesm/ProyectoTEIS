@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/app2.css') }}" rel="stylesheet" />
     <title>@yield('title', 'Vasitos')</title>
 </head>
 
@@ -23,27 +23,9 @@
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" id="a_home" href="{{ route('home.index') }}">{{__('Home') }}</a>
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-                    @guest
                     <a class="nav-link active" id="a_login" href="{{ route('login') }}">{{__('loginUser') }}</a>
                     <a class="nav-link active" id="a_register" href="{{ route('register') }}">{{__('registerUser') }}</a>
                 </div>
-                @else
-                <form id="logout" action="{{ route('logout') }}" method="POST">
-                    <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">{{__('logOutUser') }}</a>
-                    @csrf
-                </form>
-                <a class="nav-link active" href="{{ route('user_vasitos.list') }}">{{__('vasitosList') }}</a>
-                <a class="nav-link active" href="{{ route('user_wines.list') }}"> {{__('winesList') }}</a>
-                <a class="nav-link active" href="{{ route('vasitos.lowPrice') }}">{{__('lowPriceVasito') }}</a>
-                <a class="nav-link active" href="{{ route('wines.highDiscount') }}">{{__('highDiscountWines') }}</a>
-                <a class="nav-link active" href="{{ route('user_vasitos.searchPriceConsult') }}">{{__('searchVasitosPrices') }}</a>
-                <a class="nav-link active" href="{{ route('user_wines.nameSearchConsult') }}">{{__('searchWinesNames') }}</a>
-                <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-                <a class="nav-link active" href="{{ route('cart.index') }}">{{__('cart') }}</a>
-                @endguest
-                <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-
-
             </div>
         </div>
         </div>
@@ -55,27 +37,13 @@
         <article color="#fffff" class="article_white">
             <header class="header_section_1">
                 <div class="div_p_section_1">
-                    <p class="p_section_titles">VASITOS</p>
-                </div>
-                <div>
-                <h1 class="h1_section_1">
-                    <a href="/vasitos/list" id="home_vasitos_a" data-replace="Vasitos"><span>Vasitos</span></a>
-                </h1>
-
-                </div>
-                <div>
-                <h1 class="h1_section_1">
-                <a href="/wines/list" id="home_wines_a" data-replace="Wines"><span>Wines</span></a>
-
-                </h1>
+                    <div class="container my-4">
+                        @yield('content')
+                    </div>
                 </div>
             </header>
         </article>
     </section>
-
-    <div class="container my-4">
-        @yield('content')
-    </div>
 
     <!-- footer -->
     <div class="copyright py-4 text-center text-white">

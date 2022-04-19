@@ -1,16 +1,18 @@
-@extends('layouts_user.app')
+@extends('layouts_user.list')
 @section('content')
-<div class="row">
+<div class="container2">
   @foreach ($viewData["vasitos"] as $vasito)
-  <div class="col-md-4 col-lg-3 mb-3">
     <div class="card">
+    <div class="imgBx">
     <img src= {{ $vasito->getImage() }} >
-      <div class="card-body text-center">
+      <div class="contentBx">
         <a href="{{ route('user_vasitos.show', ['id'=> $vasito->getId()]) }}"
-          class="btn bg-primary text-black">{{__('name') }}: {{ $vasito->getName()}} {{__('price') }}: {{ $vasito->getPrice()}}</a>
+          class="btn bg-primary text-black">
+          {{__('name') }}: {{ $vasito->getName()}}
+          {{__('price') }}: {{ $vasito->getPrice()}} </a>
       </div>
-    </div>
   </div>
+  </div>
+
   @endforeach
-</div>
-@endsection
+    @endsection
