@@ -59,3 +59,10 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.ind
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+
+
+
+//API ROUTES crud
+
+Route::get('/api/vasitos', 'App\Http\Controllers\Api\KappuApi@index')->name("api.Kappu.index");
+Route::get('/api/vasitos/{id}', 'App\Http\Controllers\Api\KappuApi@show')->name("api.Kappu.show");

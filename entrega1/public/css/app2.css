@@ -58,7 +58,7 @@ nav {
     left: 0;
 }
 #home_vasitos_a::before {
-    background-color: #54b3d6;
+    background-color: #9972DB;
     height: 2px;
     bottom: 0;
     transform-origin: 100% 50%;
@@ -72,7 +72,7 @@ nav {
     transform-origin: 100% 50%;
     transform: translate3d(200%, 0, 0);
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
-    color: #54b3d6;
+    color: #9972DB;
 }
 
 #home_vasitos_a:hover::before {
@@ -108,7 +108,7 @@ nav {
     left: 0;
 }
 #home_wines_a::before {
-    background-color: #54b3d6;
+    background-color: #9972DB;
     height: 2px;
     bottom: 0;
     transform-origin: 100% 50%;
@@ -122,7 +122,7 @@ nav {
     transform-origin: 100% 50%;
     transform: translate3d(200%, 0, 0);
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
-    color: #54b3d6;
+    color: #9972DB;
 }
 
 #home_wines_a:hover::before {
