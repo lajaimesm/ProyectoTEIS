@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,31 +15,40 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
+
+Route::group(['middleware' => ['auth']],function() {
+    // Routes admin crud wines
+    Route::get('/admin/wines/register', 'App\Http\Controllers\Admin\WineController@register')->name("admin.wines.register");
+    Route::post('/admin/wines/upload', 'App\Http\Controllers\Admin\WineController@save')->name("admin.wines.upload");
+    Route::get('/admin/wines/list', 'App\Http\Controllers\Admin\WineController@index')->name("admin.wines.list");
+    Route::get('/admin/wines/show/{id}', 'App\Http\Controllers\Admin\WineController@show')->name("admin.wines.show");
+    Route::get('/admin/wines/nameSearchConsult', 'App\Http\Controllers\Admin\WineController@wineNameSearchConsult')->name("admin.wines.nameSearchConsult");
+    Route::get('/admin/wines/highDiscount', 'App\Http\Controllers\Admin\WineController@wineHighDiscount')->name("admin.wines.highDiscount");
+    Route::get('/admin/wines/nameSearch', 'App\Http\Controllers\Admin\WineController@wineNameSearch')->name("admin.wines.nameSearch");
+    Route::get('/admin/wines/delete/{id}', 'App\Http\Controllers\Admin\WineController@destroy')->name('admin.wines.delete');
+    Route::get('/admin/wines/update/{id}', 'App\Http\Controllers\Admin\WineController@update')->name("admin.wines.update");
+    Route::post('/admin/wines/updated', 'App\Http\Controllers\Admin\WineController@updated')->name("admin.wines.updated");
+    Route::get('/admin/cart', 'App\Http\Controllers\Admin\CartController@index')->name("cart.index_admin");
+
+    // Routes admin crud vasitos
+    Route::get('/admin/vasitos/register', 'App\Http\Controllers\Admin\VasitoController@register')->name("admin.vasitos.register");
+    Route::post('/admin/vasitos/upload', 'App\Http\Controllers\Admin\VasitoController@save')->name("admin.vasitos.upload");
+    Route::get('/admin/vasitos/list', 'App\Http\Controllers\Admin\VasitoController@index')->name("admin.vasitos.list");
+    Route::get('/admin/vasitos/show/{id}', 'App\Http\Controllers\Admin\VasitoController@show')->name("admin.vasitos.show");
+    Route::get('/admin/vasitos/searchPriceConsult', 'App\Http\Controllers\Admin\VasitoController@vasitoSearchPriceConsult')->name("admin.vasitos.searchPriceConsult");
+    Route::get('/admin/vasitos/searchPrice', 'App\Http\Controllers\Admin\VasitoController@vasitoSearchPrice')->name("admin.vasitos.searchPrice");
+    Route::get('/admin/vasitos/delete/{id}', 'App\Http\Controllers\Admin\VasitoController@destroy')->name('admin.vasitos.delete');
+    Route::get('/admin/vasitos/update/{id}', 'App\Http\Controllers\Admin\VasitoController@update')->name("admin.vasitos.update");
+    Route::post('/admin/vasitos/updated', 'App\Http\Controllers\Admin\VasitoController@updated')->name("admin.vasitos.updated");
+    Route::get('/admin/vasitos/lowPrice', 'App\Http\Controllers\Admin\VasitoController@vasitoLowPrice')->name("admin.vasitos.lowPrice");
+    //Routes Cart
+
+    Route::get('/admin/cart', 'App\Http\Controllers\Admin\CartController@index')->name("admin.cart.index");
+    Route::get('/admin/cart/add/{id}', 'App\Http\Controllers\Admin\CartController@add')->name("admin.cart.add");
+    Route::get('/admin/cart/removeAll/', 'App\Http\Controllers\Admin\CartController@removeAll')->name("admin.cart.removeAll");
+    Route::get('/admin/cart/purchase', 'App\Http\Controllers\Admin\CartController@purchase')->name("admin.cart.purchase");
+});
 Auth::routes();
-
-// Routes admin crud wines
-Route::get('/admin/wines/register', 'App\Http\Controllers\WineController@register')->name("wines.register");
-Route::post('/admin/wines/upload', 'App\Http\Controllers\WineController@save')->name("wines.upload");
-Route::get('/admin/wines/list', 'App\Http\Controllers\WineController@index')->name("wines.list");
-Route::get('/admin/wines/show/{id}', 'App\Http\Controllers\WineController@show')->name("wines.show");
-Route::get('/admin/wines/nameSearchConsult', 'App\Http\Controllers\WineController@wineNameSearchConsult')->name("wines.nameSearchConsult");
-Route::get('/admin/wines/nameSearch', 'App\Http\Controllers\WineController@wineNameSearch')->name("wines.nameSearch");
-Route::get('/admin/wines/delete/{id}', 'App\Http\Controllers\WineController@destroy')->name('wines.delete');
-Route::get('/admin/wines/update/{id}', 'App\Http\Controllers\WineController@update')->name("wines.update");
-Route::post('/admin/wines/updated', 'App\Http\Controllers\WineController@updated')->name("wines.updated");
-Route::get('/admin/cart', 'App\Http\Controllers\CartController@index')->name("cart.index_admin");
-
-// Routes admin crud vasitos
-Route::get('/admin/vasitos/register', 'App\Http\Controllers\VasitoController@register')->name("vasitos.register");
-Route::post('/admin/vasitos/upload', 'App\Http\Controllers\VasitoController@save')->name("vasitos.upload");
-Route::get('/admin/vasitos/list', 'App\Http\Controllers\VasitoController@index')->name("vasitos.list");
-Route::get('/admin/vasitos/show/{id}', 'App\Http\Controllers\VasitoController@show')->name("vasitos.show");
-Route::get('/admin/vasitos/searchPriceConsult', 'App\Http\Controllers\VasitoController@vasitoSearchPriceConsult')->name("vasitos.searchPriceConsult");
-Route::get('/admin/vasitos/searchPrice', 'App\Http\Controllers\VasitoController@vasitoSearchPrice')->name("vasitos.searchPrice");
-Route::get('/admin/vasitos/delete/{id}', 'App\Http\Controllers\VasitoController@destroy')->name('vasitos.delete');
-Route::get('/admin/vasitos/update/{id}', 'App\Http\Controllers\VasitoController@update')->name("vasitos.update");
-Route::post('/admin/vasitos/updated', 'App\Http\Controllers\VasitoController@updated')->name("vasitos.updated");
-
 // Routes vasitos
 Route::get('/vasitos/list', 'App\Http\Controllers\VasitoController@index')->name("user_vasitos.list");
 Route::get('/vasitos/lowPrice', 'App\Http\Controllers\VasitoController@vasitoLowPrice')->name("vasitos.lowPrice");

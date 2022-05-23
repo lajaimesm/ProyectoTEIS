@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('title', 'Home Page - Online Store')
+@extends('layout.admin')
 @section('content')
 <div class="text-center">
   {{__('welcome')}}

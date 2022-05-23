@@ -1,6 +1,6 @@
-@extends('admin')
+@extends('layout.admin')
 @section('content')
 <div class="text-center">
-{{__('elementCreated')}}
+{{__('elementUpdated')}}
 </div>
 @endsection

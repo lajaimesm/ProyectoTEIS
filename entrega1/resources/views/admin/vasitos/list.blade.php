@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layout.admin')
 @section('content')
 <div class="row">
   @foreach ($viewData["vasitos"] as $vasito)
@@ -6,7 +6,7 @@
     <div class="card">
       <img src= {{ $vasito->getImage() }} >
       <div class="card-body text-center">
-        <a href="{{ route('vasitos.show', ['id'=> $vasito->getId()]) }}"
+        <a href="{{ route('admin.vasitos.show', ['id'=> $vasito->getId()]) }}"
           class="btn bg-primary text-black">{{__('name')}}: {{ $vasito->getName()}} {{__('id')}}: {{ $vasito->getId()}}</a>
       </div>
     </div>

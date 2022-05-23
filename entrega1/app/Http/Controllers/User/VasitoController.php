@@ -84,9 +84,9 @@ class VasitoController extends Controller
         $vasitos = Vasito::orderBy('price')->take(3)->get();
         $viewData["vasitos"] = $vasitos;
         if (!is_null(Auth::user()) && Auth::user()->type =='1') {
-            return view('vasitos.lowPrice')->with("viewData", $viewData);
+            return view('admin.vasitos.lowPrice')->with("viewData", $viewData);
         }else {
-            return view('vasitos.lowPrice')->with("viewData", $viewData);
+            return view('admin.vasitos.lowPrice')->with("viewData", $viewData);
         }
         
     }

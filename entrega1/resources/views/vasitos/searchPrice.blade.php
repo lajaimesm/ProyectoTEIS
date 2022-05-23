@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin')
 @section('content')
 <div class="row">
   @foreach ($viewData["vasitos"] as $vasito)
