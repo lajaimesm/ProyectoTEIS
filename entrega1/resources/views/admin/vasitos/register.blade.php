@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layout.admin')
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
@@ -13,7 +13,7 @@
               @endforeach
             </ul>
             @endif
-            <form method="POST" action="{{ route('vasitos.upload') }}">
+            <form method="POST" action="{{ route('admin.vasitos.upload') }}">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter Name" name="name" value="{{ old('name') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />

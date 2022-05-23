@@ -9,6 +9,14 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    /**
+     * USER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the user primary key (id)
+     * $this->attributes['name'] - string - contains the user name
+     * $this->attributes['email'] - string - contains the user email
+     * $this->attributes['password'] - string - contains the user password
+     * $this->attributes['type'] - boolean - contains the user type
+    */
     use HasApiTokens, Notifiable;
 
     /**

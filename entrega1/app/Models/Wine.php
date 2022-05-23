@@ -30,7 +30,7 @@ class Wine extends Model
             "name" => "required|max:255",
             "amount" => "required|numeric|gte:0",
             "price" => "required|numeric|gte:0",
-            "image" => "required|url",
+            "image" => "required",
             "discount" => "required|gte:0|max:0.99"
         ]);
     }

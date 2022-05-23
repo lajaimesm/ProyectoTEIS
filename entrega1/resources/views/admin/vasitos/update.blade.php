@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layout.admin')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">{{__('enterVasito')}}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('vasitos.updated') }}" enctype="multipart/form-viewdata">
+                    <form method="POST" action="{{ route('admin.vasitos.updated') }}" enctype="multipart/form-viewdata">
                         @csrf
                         <div class="form-group">
                             <input type="hidden" name="id" value="{{ $viewData['vasito']->getId() }}">
