@@ -63,6 +63,9 @@ Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->na
 
 
 //API ROUTES crud
-
 Route::get('/api/vasitos', 'App\Http\Controllers\Api\KappuApi@index')->name("api.Kappu.index");
 Route::get('/api/vasitos/{id}', 'App\Http\Controllers\Api\KappuApi@show')->name("api.Kappu.show");
+Route::get('/api/v2/vasitos', 'App\Http\Controllers\Api\KappuApiV2@index')->name("api.v2.Kappu.index");
+Route::get('/api/v2/vasitos/{id}', 'App\Http\Controllers\Api\KappuApiV2@show')->name("api.v2.Kappu.show");
+Route::get('/api/v3/vasitos', 'App\Http\Controllers\Api\KappuApiV3@index')->name("api.v3.Kappu.index");
+Route::get('/api/v3/vasitos/{id}', 'App\Http\Controllers\Api\KappuApiV3@paginate')->name("api.v3.Kappu.paginate");
