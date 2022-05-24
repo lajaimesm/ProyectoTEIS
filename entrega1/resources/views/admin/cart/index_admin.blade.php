@@ -4,35 +4,33 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
     <h1>{{__('availableProducts')}}</h1>
-    <ul>
-      @foreach($viewData["wines"] as $key => $wine)
-        <li>
-        {{__('id')}}: {{  $wine->getId() }} - 
-        {{__('name')}}: {{ $wine->getName() }} -
-        {{__('price')}}: {{ $wine->getPrice() }} -
-          <a href="{{ route('admin.cart.add', ['id'=> $wine->getId() ]) }}">{{__('addToCart')}}</a>
-        </li>
-      @endforeach
-    </ul>
-    </div>
-  </div>
+    <h2>{{__('wines')}}</h2>
+    @if (!is_null($viewData) && isset($viewData['wines']))
+                        @if (count($viewData['wines']) > 0)
+                            <h3>{{ __('messages.wine') }}</h3>
+                            <ul class="ul-list-cart">
+                                @foreach ($viewData['wines'] as $item)
+                                    <li class="card card-item card-item-cart">
+                                        <div class="list-column">
+                                            <h5>{{ $item->getId() }}</h5>
+                                            <p>{{ $item->getName() }}</p>
+                                            <p>{{ $item->getPrice() }}$</p>
+                                            <label for="exampleInputName"
+                                                class="font-weight-bold">{{ __('messages.wine') }}</:
+                                                {{ $quantityWine[$item->getId()] }}
+                                            </label>
+                                            <a class="btn btn-success"
+                                                href="{{ route('admin.wines.show', $item->getId()) }}">{{ __('messages.wine') }}</</a>
+                                        </div>
+                                    </li>
 
-  <a href="{{ route('admin.cart.purchase') }}">{{__('pay')}}</a>
+                                @endforeach
+                            </ul>
 
-  <div class="row justify-content-center">
-    <div class="col-md-12">
-    <h1>{{__('productsInCart')}}</h1>
-      <ul>
-        @foreach($viewData["productsInCart"] as $key => $wine)
-          <li>
-          {{__('id')}}: {{  $wine->getId() }} - 
-          {{__('name')}}: {{ $wine->getName() }} -
-          {{__('price')}}: {{ $wine->getPrice() }}
-          </li>
-        @endforeach
-      </ul>
-      <a href="{{ route('admin.cart.removeAll') }}">{{__('removeAllProducts')}}</a>
-    </div>
+                        @endif
+                    @endif
+    <h2>{{__('vasitos')}}</h2>
+    
   </div>
 </div>
 @endsection

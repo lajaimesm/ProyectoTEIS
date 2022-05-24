@@ -40,11 +40,15 @@ class WineController extends Controller
         $viewData = [];
         $wine = Wine::findOrFail($id);
         $viewData["wine"] = $wine;
+        $viewData["image2"] = "";
         return view('admin.wines.update')->with("viewData", $viewData);
     }
 
     public function updated(Request $request)
     {
+        if ($request["image2"]!=NULL ){
+            $request["image"] = $request["image2"];
+        }
         $data = $request->only(["id","name","amount","price","image","discount"]);
         $wine = Wine::findOrFail($data["id"]);
         foreach ($data as $key => $value) {

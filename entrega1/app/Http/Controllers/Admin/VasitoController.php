@@ -40,11 +40,15 @@ class VasitoController extends Controller
         $viewData = [];
         $vasito = Vasito::findOrFail($id);
         $viewData["vasito"] = $vasito;
+        $viewData["image2"] = "";
         return view('admin.vasitos.update')->with("viewData", $viewData);
     }
 
     public function updated(Request $request)
     {
+        if ($request["image2"]!=NULL ){
+            $request["image"] = $request["image2"];
+        }
         $data = $request->only(["id","name","amount","price","image","discount","description"]);
         $vasito = Vasito::findOrFail($data["id"]);
         foreach ($data as $key => $value) {
