@@ -12,21 +12,21 @@ class CartController extends Controller
 {
     public function index(Request $request)
     {
-        $wines = Wine::all();
+        $items = Item::all();
         $productsInCart = [];
-        $ids = $request->session()->get("wines"); //we get the ids of the products stored in session
-        if ($ids) {
-            $productsInCart = Wine::findMany(array_keys($ids));
+        $productsInSession = $request->session()->get("items"); //we get the ids of the beers stored in session
+        $productsItems = [];
+        if ($productsInSession) {
+            $productsInCart = Item::findMany(array_keys($productsInSession));
+            foreach ($productsInCart as $item) {
+                array_push($productsItems, ['wines' => $item, 'quantity' => $productsInSession[$item['id']]]);
+            }
         }
-        
         $viewData = [];
-        $viewData["wines"] = $wines;
+        $viewData["items"] = $items;
         $viewData["productsInCart"] =$productsInCart;
-        if (!is_null(Auth::user()) && Auth::user()->type =='1') {
-            return view('cart.index_admin')->with("viewData", $viewData);
-        } else {
-            return view('cart.index')->with("viewData", $viewData);
-        }
+        $viewData["total"] = $this->getTotal($productsItems);
+
     }
 
     public function add($id, Request $request)
@@ -39,7 +39,7 @@ class CartController extends Controller
 
     public function purchase(Request $request)
     {
- 
+
         $productsInSession = $request->session()->get("wines");
 
         $wines = Wine::findMany(array_keys($productsInSession));

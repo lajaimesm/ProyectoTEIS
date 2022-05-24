@@ -12,7 +12,7 @@
 </head>
 <body>
   <!-- header -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
+  <nav class="navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="{{ route('home.index') }}">Vasitos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -54,7 +54,7 @@
 
   <!-- header -->
 
-  <div class="container my-4">
+  <div class="container_login">
     @yield('content')
   </div>
 
