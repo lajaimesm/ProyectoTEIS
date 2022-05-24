@@ -21,6 +21,21 @@ class OrderController extends Controller
     {
         $viewData = [];
         $order = Order::findOrFail($id);
+        $viewData["items"] = [];
+        foreach($order->getItems() as $item){
+            if(!is_null($item->getWineId())){
+                $wine = Wine::findOrFail($item->getWineId());
+                array_push($viewData["items"],$wine);
+            }
+            if(!is_null($item->getVasitoId())){
+                $vasito = Vasito::findOrFail($item->getVasitoId());
+                array_push($viewData["items"],$vasito);
+            }
+            if(!is_null($item->getComboId())){
+                $combo = Combo::findOrFail($item->getComboId());
+                array_push($viewData["items"],$combo);
+            }
+        }
         $viewData["order"] = $order;
         return view('orders.show')->with("viewData", $viewData);
     }

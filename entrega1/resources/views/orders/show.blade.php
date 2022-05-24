@@ -8,6 +8,9 @@
         {{__('id')}}: {{ $viewData["order"]->getId() }}
         </h5>
         <p class="card-text">{{__('total')}}: {{ $viewData["order"]->getTotal() }}</p>
+        @foreach ($viewData["items"] as $item)
+            <p class="card-text">{{__('name')}}: {{ $item->getName() }}</p>
+        @endforeach
   </div>
 </div>
 @endsection

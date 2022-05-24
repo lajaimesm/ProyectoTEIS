@@ -108,6 +108,36 @@ class Item extends Model
         $this->attributes['combo_id'] = $combo_id;
     }
 
+    public function getVasitos()
+    {
+        return $this->vasitos;
+    }
+
+    public function setVasitos($vasitos)
+    {
+        $this->vasitos = $vasitos;
+    }
+
+    public function getWines()
+    {
+        return $this->wines;
+    }
+
+    public function setWines($wines)
+    {
+        $this->wines = $wines;
+    }
+
+    public function getCombos()
+    {
+        return $this->combos;
+    }
+
+    public function setCombos($combos)
+    {
+        $this->combos = $combos;
+    }
+
     public function order()
     {
         return $this->belongsTo(Order::class);
