@@ -15,12 +15,17 @@
             @endif
             <form method="POST" action="{{ route('admin.wines.upload') }}">
               @csrf
-              <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter amount" name="amount" value="{{ old('amount') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter price" name="price" value="{{ old('price') }}" />
-              <input type="text" class="form-control mb-2" placeholder="Enter discount" name="discount" value="{{ old('discount') }}" />
-              <input type="file" class="form-control mb-2" placeholder="Enter image" name="image" value="{{ old('image') }}" />
-              <input type="submit" class="btn btn-primary" value="Register" />
+              <label for="exampleInputName">{{ __('name') }}</label>
+              <input type="text" class="form-control mb-2" placeholder="{{ __('enterName') }}" name="name" value="{{ old('name') }}" />
+              <label for="exampleInputAmount">{{ __('amount') }}</label>
+              <input type="text" class="form-control mb-2" placeholder="{{ __('enterAmount') }}"  name="amount" value="{{ old('amount') }}" />
+              <label for="exampleInputPrice">{{ __('price') }}</label>
+              <input type="text" class="form-control mb-2" placeholder="{{ __('enterPrice') }}" name="price" value="{{ old('price') }}" />
+              <label for="exampleInputDiscount">{{ __('discount') }}</label>
+              <input type="text" class="form-control mb-2" placeholder="{{ __('enterDiscount') }}" name="discount" value="{{ old('discount') }}" />
+              <label for="exampleInputImage">{{ __('image') }}</label>
+              <input type="file" class="form-control mb-2" placeholder="{{ __('enterImage') }}" name="image" value="{{ old('image') }}" />
+              <input type="submit" class="mt-2 btn bg-primary text-white" value="{{ __('register') }}" />
             </form>
           </div>
         </div>

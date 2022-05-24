@@ -44,7 +44,8 @@ Route::group(['middleware' => ['auth']],function() {
     //Routes Cart
 
     Route::get('/admin/cart', 'App\Http\Controllers\Admin\CartController@index')->name("admin.cart.index");
-    Route::get('/admin/cart/add/{id}', 'App\Http\Controllers\Admin\CartController@add')->name("admin.cart.add");
+    Route::get('/admin/cart/addWine/{id}', 'App\Http\Controllers\Admin\CartController@addWine')->name("admin.cart.addWine");
+    Route::get('/admin/cart/addVasito/{id}', 'App\Http\Controllers\Admin\CartController@addVasito')->name("admin.cart.addVasito");
     Route::get('/admin/cart/removeAll/', 'App\Http\Controllers\Admin\CartController@removeAll')->name("admin.cart.removeAll");
     Route::get('/admin/cart/purchase', 'App\Http\Controllers\Admin\CartController@purchase')->name("admin.cart.purchase");
 });

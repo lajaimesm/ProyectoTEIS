@@ -13,31 +13,31 @@
 
                             <label for="exampleInputName">    {{__('name')}}</label>
                             <input type="text" class="form-control" name="name" aria-describedby="nameHelp"
-                                placeholder="Name" value="{{ $viewData['vasito']->getName() }}">
+                                placeholder="{{__('name')}}" value="{{ $viewData['vasito']->getName() }}">
 
                             <label for="exampleInputAmount">    {{__('amount')}}</label>
                             <input type="numeric" class="form-control" name="amount" aria-describedby="nameHelp"
-                                placeholder="Amount" value="{{ $viewData['vasito']->getAmount() }}">
+                                placeholder="{{__('amount')}}" value="{{ $viewData['vasito']->getAmount() }}">
                             
                             <label for="exampleInputPrice">    {{__('price')}}</label>
                             <input type="numeric" class="form-control" name="price" aria-describedby="nameHelp"
-                                placeholder="Price" value="{{ $viewData['vasito']->getPrice() }}">
+                                placeholder="{{__('price')}}" value="{{ $viewData['vasito']->getPrice() }}">
 
                             <label for="exampleInputDiscount">    {{__('discount')}}</label>
                             <input type="numeric" class="form-control" name="discount" aria-describedby="nameHelp"
-                                placeholder="Discount" value="{{ $viewData['vasito']->getDiscount() }}">
+                                placeholder="{{__('discount')}}" value="{{ $viewData['vasito']->getDiscount() }}">
 
                             <label for="exampleInputDescription">    {{__('description')}}</label>
                             <input type="text" class="form-control" name="description" aria-describedby="nameHelp"
-                                placeholder="Description" value="{{ $viewData['vasito']->getDescription() }}">
+                                placeholder="{{__('description')}}" value="{{ $viewData['vasito']->getDescription() }}">
 
                             <div class="mb-3 mt-2">
-                                <label for="formFile" class="form-label">    {{__('image')}}</label>
-                                <input class="form-control" type="text"
-                                    value="{{ $viewData['vasito']->getImage() }}" name="image">
+                                <label for="formFile" class="form-label">{{__('image')}}</label>
+                                <input class="form-control" type="text" value="{{ $viewData['vasito']->getImage() }}" name="image">
                             </div>
+                            <input type="file" class="form-control mb-2" placeholder="{{ __('enterImage') }}" name="image2" value="{{ old('image') }}" />
                             <br>
-                            <input class="btn btn-success" type="submit" value="Update" />
+                            <input class = "mt-2 btn bg-primary text-white" type="submit" value="{{ __('update') }}"  />
                         </div>
                     </form>
                 </div>

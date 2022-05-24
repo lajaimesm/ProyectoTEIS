@@ -7,7 +7,7 @@
     <img src= {{ $wine->getImage() }} >
       <div class="card-body text-center">
         <a href="{{ route('admin.wines.show', ['id'=> $wine->getId()]) }}"
-          class="btn bg-primary text-black">{{__('name')}}: {{ $wine->getName()}} {{__('price')}}: {{ $wine->getPrice()}}</a>
+          class="mt-2 btn bg-primary text-white">{{__('name')}}: {{ $wine->getName()}} {{__('price')}}: {{ $wine->getPrice()}}</a>
       </div>
     </div>
   </div>

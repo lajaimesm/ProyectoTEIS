@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->float('price');
             $table->float('discount');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

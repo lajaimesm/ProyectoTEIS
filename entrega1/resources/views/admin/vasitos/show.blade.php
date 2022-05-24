@@ -13,11 +13,11 @@
         <p class="card-text">{{__('discount')}}: {{ $viewData["vasito"]->getDiscount() }}</p>
         <p class="card-text">{{__('description')}}: {{ $viewData["vasito"]->getDescription() }}</p>
       </div>
-        <button  type="button" >
-          <a href="{{ route('admin.vasitos.delete', ['id'=> $viewData['vasito']->getId()]) }}">{{__('delete')}}</a>
+        <button  type="button" class = "mt-2 btn" >
+          <a href="{{ route('admin.vasitos.delete', ['id'=> $viewData['vasito']->getId()]) }}" class = "mt-2 btn bg-primary text-white">{{__('delete')}}</a>
         </button>
-        <button  type="button" >
-          <a href="{{ route('admin.vasitos.update', ['id'=> $viewData['vasito']->getId()]) }}">{{__('update')}}</a>
+        <button  type="button" class = "mt-2 btn" >
+          <a href="{{ route('admin.vasitos.update', ['id'=> $viewData['vasito']->getId()]) }}" class = "mt-2 btn bg-primary text-white">{{__('update')}}</a>
         </button>
     </div>
   </div>
