@@ -1,9 +1,9 @@
 {
-    "welcome":"Welcome",
+    "welcome":"Welcome to the application",
     "homeLayout": "Home",
     "registerUser": "Register",
     "loginUser": "Login",
-    "logOutUser": "Logout",
+    "logOutUser": "A",
 
     "id":"Id",
     "amount":"Amount",

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/lang/{lang}', 'App\Http\Controllers\HomeController@setLocale')->name('user.lang');
+Route::get('/lang/{lang}', 'App\Http\Controllers\HomeController@setLocale');
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 
 Route::group(['middleware' => ['auth']],function() {
@@ -50,22 +50,22 @@ Route::group(['middleware' => ['auth']],function() {
 });
 Auth::routes();
 // Routes vasitos
-Route::get('/vasitos/list', 'App\Http\Controllers\User\VasitoController@index')->name("user_vasitos.list");
-Route::get('/vasitos/lowPrice', 'App\Http\Controllers\User\VasitoController@vasitoLowPrice')->name("vasitos.lowPrice");
-Route::get('/vasitos/searchPriceConsult', 'App\Http\Controllers\User\VasitoController@vasitoSearchPriceConsult')->name("user_vasitos.searchPriceConsult");
-Route::get('/vasitos/searchPrice', 'App\Http\Controllers\User\VasitoController@vasitoSearchPrice')->name("user_vasitos.searchPrice");
-Route::get('/vasitos/show/{id}', 'App\Http\Controllers\User\VasitoController@show')->name("user_vasitos.show");
+Route::get('/vasitos/list', 'App\Http\Controllers\VasitoController@index')->name("user_vasitos.list");
+Route::get('/vasitos/lowPrice', 'App\Http\Controllers\VasitoController@vasitoLowPrice')->name("vasitos.lowPrice");
+Route::get('/vasitos/searchPriceConsult', 'App\Http\Controllers\VasitoController@vasitoSearchPriceConsult')->name("user_vasitos.searchPriceConsult");
+Route::get('/vasitos/searchPrice', 'App\Http\Controllers\VasitoController@vasitoSearchPrice')->name("user_vasitos.searchPrice");
+Route::get('/vasitos/show/{id}', 'App\Http\Controllers\VasitoController@show')->name("user_vasitos.show");
 
 // Routes wines
-Route::get('/wines/list', 'App\Http\Controllers\User\WineController@index')->name("user_wines.list");
-Route::get('/wines/nameSearchConsult', 'App\Http\Controllers\User\WineController@wineNameSearchConsult')->name("user_wines.nameSearchConsult");
-Route::get('/wines/nameSearch', 'App\Http\Controllers\User\WineController@wineNameSearch')->name("user_wines.nameSearch");
-Route::get('/wines/highDiscount', 'App\Http\Controllers\User\WineController@wineHighDiscount')->name("wines.highDiscount");
-Route::get('/wines/show/{id}', 'App\Http\Controllers\User\WineController@show')->name("user_wines.show");
+Route::get('/wines/list', 'App\Http\Controllers\WineController@index')->name("user_wines.list");
+Route::get('/wines/nameSearchConsult', 'App\Http\Controllers\WineController@wineNameSearchConsult')->name("user_wines.nameSearchConsult");
+Route::get('/wines/nameSearch', 'App\Http\Controllers\WineController@wineNameSearch')->name("user_wines.nameSearch");
+Route::get('/wines/highDiscount', 'App\Http\Controllers\WineController@wineHighDiscount')->name("wines.highDiscount");
+Route::get('/wines/show/{id}', 'App\Http\Controllers\WineController@show')->name("user_wines.show");
 
 //Routes Cart
 
-Route::get('/cart', 'App\Http\Controllers\User\CartController@index')->name("cart.index");
-Route::get('/cart/add/{id}', 'App\Http\Controllers\User\CartController@add')->name("cart.add");
-Route::get('/cart/removeAll/', 'App\Http\Controllers\User\CartController@removeAll')->name("cart.removeAll");
-Route::get('/cart/purchase', 'App\Http\Controllers\User\CartController@purchase')->name("cart.purchase");
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");

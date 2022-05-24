@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
-class Localization
+class Language
 {
     public function handle(Request $request, Closure $next)
     {
