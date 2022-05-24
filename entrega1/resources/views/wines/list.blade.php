@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 @section('content')
 <div class="row">
   @foreach ($viewData["wines"] as $wine)
@@ -7,7 +7,7 @@
     <img src= {{ $wine->getImage() }} >
       <div class="card-body text-center">
         <a href="{{ route('wines.show', ['id'=> $wine->getId()]) }}"
-          class="btn bg-primary text-black">{{__('name')}}: {{ $wine->getName()}} {{__('id')}}: {{ $wine->getId()}}</a>
+          class="mt-2 btn bg-primary text-white">{{__('name')}}: {{ $wine->getName()}} {{__('id')}}: {{ $wine->getId()}}</a>
       </div>
     </div>
   </div>

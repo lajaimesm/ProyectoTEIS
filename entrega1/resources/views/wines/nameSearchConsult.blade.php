@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 @section('content')
 <h6>{{__('searchWinesNames') }}</h6>
   <div class="input-group rounded">

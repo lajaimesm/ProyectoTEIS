@@ -1,4 +1,4 @@
-@extends('home.index')
+@extends('layout.app')
 @section('content')
 <div class="card mb-3">
   <div class="row g-0">
@@ -11,14 +11,9 @@
         <p class="card-text">{{__('amount')}}: {{ $viewData["wine"]->getAmount() }}</p>
         <p class="card-text">{{__('price')}}: {{ $viewData["wine"]->getPrice() }}</p>
         <p class="card-text">{{__('discount')}}: {{ $viewData["wine"]->getDiscount() }}</p>
-      </div>
-        <button  type="button" >
-          <a href="{{ route('wines.delete', ['id'=> $viewData['wine']->getId()]) }}">{{__('delete')}}</a>
-        </button>
-        <button  type="button" >
-          <a href="{{ route('wines.update', ['id'=> $viewData['wine']->getId()]) }}">{{__('update')}}</a>
-        </button>
-    </div>
+  </div>
+  <div>
+    <a href="{{ route('cart.addWine',['id' => $viewData['wine']->getId()]) }}">{{__('addToCart')}}</a>
   </div>
 </div>
 @endsection

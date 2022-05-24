@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Wine;
-use Auth;
 
 class WineController extends Controller
 {
@@ -64,26 +63,4 @@ class WineController extends Controller
         return view('admin.wines.delete');
     }
 
-    public function wineHighDiscount()
-    
-    {
-        $viewData = [];
-        $viewData["wines"] = Wine::orderBy('discount', 'DESC')->get();
-        return view('admin.wines.highDiscount')->with("viewData", $viewData);
-     
-    }
-
-    public function wineNameSearch(Request $request)
-    {
-        $viewData = [];
-        $search = $request->input('search');
-        $viewData["wines"] = Wine::query()->where('name', 'LIKE', "%{$search}%")
-        ->orWhere('price', 'LIKE', "%{$search}%")->get();
-        return view('admin.wines.nameSearch')->with("viewData", $viewData);
-    }
-
-    public function wineNameSearchConsult()
-    {
-        return view('admin.wines.nameSearchConsult');
-    }
 }

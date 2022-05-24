@@ -3,7 +3,7 @@
     "homeLayout": "Home",
     "registerUser": "Register",
     "loginUser": "Login",
-    "logOutUser": "A",
+    "logOutUser": "LogOut",
 
     "id":"Id",
     "enterAmount":"Enter Amount",
@@ -21,7 +21,7 @@
     "register":"Register",
     "enterSearch":"Enter your search",
 
-
+    
     "registerVasitos": "Register Vasitos",
     "registerWines": "Register Wines",
     "vasitosList": "Vasitos",
@@ -52,6 +52,7 @@
     "pay":"Pay",
     "addToCart":"Add to Cart",
     "productsInCart":"Products In Cart",
-    "removeAllProducts":"Remove All Products From Cart"
+    "removeAllProducts":"Remove All Products From Cart",
 
+    "goBack":"Go back to the home page"
 }

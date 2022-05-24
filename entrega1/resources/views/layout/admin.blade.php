@@ -16,8 +16,8 @@
     <!-- sidebar -->
     <div class="col-md-3
      p-3 col fixed text-white bg-dark">
-      <a href="{{ route('home.index') }}" class="text-white text-decoration-none">
-        <span class="fs-4">Admin Panel</span>
+      <a href="{{ route('layout.admin') }}" class="text-white text-decoration-none">
+        <span class="fs-4">{{__('adminPanel') }}</span>
       </a>
       <hr />
       <ul class="nav flex-column">
@@ -25,14 +25,10 @@
         <li><a href="{{ route('admin.wines.register')}}" class="nav-link text-white">- {{__('registerWines') }}</a></li>
         <li><a href="{{ route('admin.vasitos.list')}}" class="nav-link text-white">- {{__('vasitosList') }}</a></li>
         <li><a href="{{ route('admin.wines.list')}}" class="nav-link text-white">- {{__('winesList') }}</a></li>
-        <li><a href="{{ route('admin.vasitos.lowPrice')}}" class="nav-link text-white">- {{__('lowPriceVasito') }}</a></li>
-        <li><a href="{{ route('admin.wines.highDiscount')}}" class="nav-link text-white">- {{__('highDiscountWines') }}</a></li>
-        <li><a href="{{ route('admin.vasitos.searchPriceConsult')}}" class="nav-link text-white">- {{__('searchVasitosPrices') }}</a></li>
-        <li><a href="{{ route('admin.wines.nameSearchConsult')}}" class="nav-link text-white">- {{__('searchWinesNames') }}</a></li>
-        <li><a href="{{  route('admin.cart.index')}}" class="nav-link text-white">- {{__('cart') }}</a></li>
-        
+        <li><a href="{{ route('admin.combos.register')}}" class="nav-link text-white">- {{__('registerCombos') }}</a></li>
+        <li><a href="{{ route('admin.combos.list')}}" class="nav-link text-white">- {{__('combosList') }}</a></li>
         <li>
-          <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">Go back to the home page</a>
+          <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">{{__('goBack') }}</a>
         </li>
       </ul>
     </div>
@@ -41,7 +37,7 @@
       <nav class="p-6 shadow text-end">
       <form id="logout" action="{{ route('logout') }}" method="POST">
         <img class="img-profile rounded-circle" height="30" width="30" src="{{ asset('/img/Messias.jpg') }}">
-        <span class="profile-font">Admin</span>
+        <span class="profile-font">{{__('admin') }}</span>
           <a role="button" class="nav-link active"
               onclick="document.getElementById('logout').submit();">{{__('logOutUser') }}</a>
           @csrf

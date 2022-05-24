@@ -19,7 +19,6 @@ class Vasito extends Model
      * $this->attributes['image'] - string - contains the vasito image url
      * $this->attributes['description'] - string - contains the vasito description
      * $this->attributes['item_id'] - int - contains the item foreign key
-     * $this->attributes['combo_id'] - int - contains the combo foreign key
      * $this->items - items - contains the associated items
      * $this->combo - combos - contains the associated combos
     */
@@ -129,15 +128,6 @@ class Vasito extends Model
     }
 
     public function setItemId($id)
-    {
-        $this->attributes['id'] = $id;
-    }
-    public function getComboId()
-    {
-        return $this->attributes['id'];
-    }
-
-    public function setComboId($id)
     {
         $this->attributes['id'] = $id;
     }

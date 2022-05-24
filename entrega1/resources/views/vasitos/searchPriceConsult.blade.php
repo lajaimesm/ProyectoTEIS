@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layout.app')
 @section('content')
 <div>
   <h6>{{__('searchVasitosPrices') }}</h6>

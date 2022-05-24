@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vasito;
-use Auth;
 
 class VasitoController extends Controller
 {
@@ -58,33 +57,10 @@ class VasitoController extends Controller
         return view('admin.vasitos.updated');
     }
 
-    public function vasitoLowPrice()
-    {
-        $viewData = [];
-        $vasitos = Vasito::orderBy('price')->take(3)->get();
-        $viewData["vasitos"] = $vasitos;
-        return view('admin.vasitos.lowPrice')->with("viewData", $viewData); 
-
-    }
-
     public function destroy($id)
     {
         Vasito::destroy($id);
-        return view('vastios.delete');
+        return view('admin.vasitos.delete');
     }
 
-    public function vasitoSearchPrice(Request $request)
-    {
-        $viewData = [];
-        $max = $request->input('max');
-        $min = $request->input('min');
-        $viewData["vasitos"] = Vasito::query()->where('price', '>=', "{$min}")
-        ->where('price', '<=', "{$max}")->get();
-        return view('admin.vasitos.searchPrice')->with("viewData", $viewData);
-    }
-
-    public function vasitoSearchPriceConsult()
-    {
-        return view('admin.vasitos.searchPriceConsult');
-    }
 }

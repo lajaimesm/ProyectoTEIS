@@ -32,12 +32,12 @@
                onclick="document.getElementById('logout').submit();">{{__('logOutUser') }}</a>
             @csrf
           </form>
-          <a class="nav-link active" href="{{ route('user_vasitos.list') }}">{{__('vasitosList') }}</a>
-          <a class="nav-link active" href="{{ route('user_wines.list') }}"> {{__('winesList') }}</a>
+          <a class="nav-link active" href="{{ route('vasitos.list') }}">{{__('vasitosList') }}</a>
+          <a class="nav-link active" href="{{ route('wines.list') }}"> {{__('winesList') }}</a>
           <a class="nav-link active" href="{{ route('vasitos.lowPrice') }}">{{__('lowPriceVasito') }}</a>
           <a class="nav-link active" href="{{ route('wines.highDiscount') }}">{{__('highDiscountWines') }}</a>
-          <a class="nav-link active" href="{{ route('user_vasitos.searchPriceConsult') }}">{{__('searchVasitosPrices') }}</a>
-          <a class="nav-link active" href="{{ route('user_wines.nameSearchConsult') }}">{{__('searchWinesNames') }}</a>
+          <a class="nav-link active" href="{{ route('vasitos.searchPriceConsult') }}">{{__('searchVasitosPrices') }}</a>
+          <a class="nav-link active" href="{{ route('wines.nameSearchConsult') }}">{{__('searchWinesNames') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           <a class="nav-link active" href="{{ route('cart.index') }}">{{__('cart') }}</a>
           @endguest

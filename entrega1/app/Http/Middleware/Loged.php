@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 
-class AdminMiddleware
+class Loged
 {
     /**
      * Handle an incoming request.
@@ -23,8 +23,8 @@ class AdminMiddleware
     }
 
     public function handle(Request $request, Closure $next)
-    {
-        if ($this->auth->user()->type !== "1") {
+    {   
+        if ($this->auth->user()->type !== 1) {
             abort(403, 'Unauthorized action.');
         }
 

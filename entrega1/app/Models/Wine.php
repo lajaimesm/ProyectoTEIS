@@ -17,9 +17,7 @@ class Wine extends Model
      * $this->attributes['price'] - float - contains the wine price
      * $this->attributes['image'] - string - contains the wine url image
      * $this->attributes['discount'] - float - contains the wine discount
-     * $this->attributes['type'] - string - contains the wine type
      * $this->attributes['item_id'] - int - contains the item foreign key
-     * $this->attributes['combo_id'] - int - contains the combo foreign key
      * $this->items - items - contains the associated items
      * $this->combo - combos - contains the associated combos
     */
@@ -98,31 +96,12 @@ class Wine extends Model
         $this->attributes['image'] = $image;
     }
 
-    public function getType()
-    {
-        return $this->attributes['type'];
-    }
-
-    public function setType($type)
-    {
-        $this->attributes['type'] = $type;
-    }
-
     public function getItemId()
     {
         return $this->attributes['id'];
     }
 
     public function setItemId($id)
-    {
-        $this->attributes['id'] = $id;
-    }
-    public function getComboId()
-    {
-        return $this->attributes['id'];
-    }
-
-    public function setComboId($id)
     {
         $this->attributes['id'] = $id;
     }

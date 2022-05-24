@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layout.app')
 @section('content')
 <div class="card mb-3">
   <div class="row g-0">
@@ -12,14 +12,9 @@
         <p class="card-text">{{__('price')}}: {{ $viewData["vasito"]->getPrice() }}</p>
         <p class="card-text">{{__('discount')}}: {{ $viewData["vasito"]->getDiscount() }}</p>
         <p class="card-text">{{__('description')}}: {{ $viewData["vasito"]->getDescription() }}</p>
-      </div>
-        <button  type="button" >
-          <a href="{{ route('vasitos.delete', ['id'=> $viewData['vasito']->getId()]) }}">{{__('delete')}}</a>
-        </button>
-        <button  type="button" >
-          <a href="{{ route('vasitos.update', ['id'=> $viewData['vasito']->getId()]) }}">{{__('update')}}</a>
-        </button>
-    </div>
+  </div>
+  <div>
+    <a href="{{ route('cart.addVasito',['id' => $viewData['vasito']->getId()]) }}">{{__('addToCart')}}</a>
   </div>
 </div>
 @endsection

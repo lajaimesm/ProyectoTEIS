@@ -1,6 +1,6 @@
-@extends('home.index')
+@extends('layout.admin')
 @section('content')
 <div class="text-center">
-{{__('elementDeleted')}}
+{{__('elementCreated')}}
 </div>
 @endsection

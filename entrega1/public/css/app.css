@@ -12,6 +12,14 @@ body {
 
 }
 
+h1{
+    color: #fff;
+}
+
+li {
+    color:#fff;
+}
+
 .copyright {
     background-color: #212121;
 }
