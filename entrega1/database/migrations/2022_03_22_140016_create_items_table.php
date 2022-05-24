@@ -22,14 +22,11 @@ return new class extends Migration
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('wine_id');
             $table->foreign('wine_id')->references('id')->on('wines')->onDelete('cascade')->onUpdate('cascade');
-            /*
             $table->unsignedBigInteger('vasito_id');
             $table->foreign('vasito_id')->references('id')->on('vasitos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('combo_id');
             $table->foreign('combo_id')->references('id')->on('combos')->onDelete('cascade')->onUpdate('cascade');
-            */
             $table->timestamps();
-            
         });
     }
 

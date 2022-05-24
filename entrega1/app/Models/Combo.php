@@ -119,16 +119,46 @@ class Combo extends Model
 
     public function item()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsToMany(Item::class);
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function setItems($items)
+    {
+        $this->items = $items;
     }
 
     public function wine()
     {
-        return $this->belongsTo(Wine::class);
+        return $this->hasMany(Wine::class);
+    }
+
+    public function getWines()
+    {
+        return $this->wines;
+    }
+
+    public function setWines($wines)
+    {
+        $this->wines = $wines;
     }
     
     public function vasito()
     {
-        return $this->belongsTo(Vasito::class);
+        return $this->hasMany(Vasito::class);
+    }
+
+    public function getVasito()
+    {
+        return $this->vasito;
+    }
+
+    public function setVasito($vasito)
+    {
+        $this->vasito = $vasito;
     }
 }

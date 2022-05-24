@@ -1,5 +1,5 @@
 {
-    "welcome":"Welcome to the application",
+    "welcome":"Welcome",
     "homeLayout": "Home",
     "registerUser": "Register",
     "loginUser": "Login",
@@ -40,6 +40,5 @@
     "addToCart":"Add to Cart",
     "productsInCart":"Products In Cart",
     "removeAllProducts":"Remove All Products From Cart"
-    
 
 }

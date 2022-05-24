@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Vasito;
+use App\Models\Combo;
+use App\Models\Wine;
+use App\Models\Order;
 
 class Item extends Model
 {
@@ -16,6 +20,7 @@ class Item extends Model
      * $this->attributes['order_id'] - int - contains the order foreign key
      * $this->attributes['wine_id'] - int - contains the wine foreign key
      * $this->attributes['combo_id'] - int - contains the combo foreign key
+     * $this->order - order - contains the associated order
      * $this->vasitos - vasitos - contains the associated vasitos
      * $this->wines - wines - contains the associated wines
      * $this->combos - combos - contains the associated combos
@@ -110,16 +115,16 @@ class Item extends Model
 
     public function wine()
     {
-        return $this->belongsTo(Wine::class);
+        return $this->hasMany(Wine::class);
     }
     
     public function vasito()
     {
-        return $this->belongsTo(Vasito::class);
+        return $this->hasMany(Vasito::class);
     }
 
     public function combo()
     {
-        return $this->belongsTo(Combo::class);
+        return $this->hasMany(Combo::class);
     }
 }

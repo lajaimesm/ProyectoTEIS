@@ -14,4 +14,10 @@ class HomeController extends Controller
             return view('layouts_user.app');
         }
     }
+
+    public function setLocale($locale)
+    {
+        session()->put('locale', $locale);
+        return back();
+    }
 }

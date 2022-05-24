@@ -15,7 +15,7 @@ class Order extends Model
      * $this->attributes['total'] - float - contains the total of the order
      * $this->attributes['user_id'] - int - contains the user foreign key
      * $this->items - items - contains the associated items
-     * $this->users - users - contains the associated users
+     * $this->user - users - contains the associated users
     */
 
     public function getId()
@@ -53,18 +53,28 @@ class Order extends Model
         $this->items = $items;
     }
 
-    public function users()
+    public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function getUsers()
+    public function getUser()
     {
-        return $this->users;
+        return $this->user;
     }
 
-    public function setUsers($users)
+    public function setUser($user)
     {
-        $this->users = $users;
+        $this->user = $user;
+    }
+
+    public function getUserId()
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId($userId)
+    {
+        $this->attributes['user_id'] = $userId;
     }
 }
