@@ -11,7 +11,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
-COPY ./
+COPY ./*
 
 COPY apache-conf/ /etc/apache2/
 
