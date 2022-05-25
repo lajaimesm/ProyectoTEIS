@@ -15,7 +15,7 @@ RUN sed -i "/APP_DEBUG=/c\APP_DEBUG=false" .env
 
 COPY . /var/www/html
 WORKDIR /var/www/html
-RUN cp .env.example .env
+RUN cp .env.example.env
 RUN composer install \
     --ignore-platform-reqs \
     --no-interaction \
