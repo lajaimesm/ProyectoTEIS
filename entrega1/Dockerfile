@@ -31,6 +31,6 @@ RUN a2enmod rewrite
 RUN a2enmod rewrite &&  \
     a2dissite 000-default && \
     a2ensite vasitos.tk && \
-    service apache2 restar
+    service apache2 restart
 RUN service apache2 reload
 
