@@ -14,6 +14,8 @@ WORKDIR /var/www/html
 COPY . ./
 
 COPY ./apache-conf/ /etc/apache2/
+RUN echo "ServerName localhost" >> /etc/apache2/conf.d/fqdn
+
 
 RUN cp .env.example .env
 RUN sed -i "/DB_HOST=/c\DB_HOST=\"$DB_HOST\"" .env
