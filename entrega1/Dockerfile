@@ -14,7 +14,7 @@ WORKDIR /var/www/html
 COPY . ./
 
 COPY ./apache-conf/ /etc/apache2/
-RUN echo "ServerName localhost" >> /etc/apache2/
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 
 RUN cp .env.example .env
