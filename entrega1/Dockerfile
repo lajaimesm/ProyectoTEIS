@@ -11,9 +11,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
-COPY ./*
+COPY . ./
 
-COPY apache-conf/ /etc/apache2/
+RUN cp apache-conf/ /etc/apache2/
 
 RUN cp .env.example .env
 RUN sed -i "/DB_HOST=/c\DB_HOST=\"$DB_HOST\"" .env
