@@ -25,7 +25,7 @@ RUN composer install \
 RUN composer require google/cloud-storage   
 RUN php artisan key:generate
 RUN chmod -R 777 storage
-RUN echo "ServerName vasitos.tk" >> /etc/apache2/apache2.conf
+RUN echo "ServerName www.vasitos.tk" >> /etc/apache2/apache2.conf
 RUN a2enmod rewrite
 RUN a2enmod rewrite &&  \
     a2dissite 000-default && \
