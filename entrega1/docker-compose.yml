@@ -11,10 +11,10 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
-      MYSQL_DATABASE:'homestead'
-      MYSQL_USER:'homestead'
-      MYSQL_PASSWORD:'secret'
-      MYSQL_ROOT_PASSWORD:'secret.root'
+      - DB_HOST=
+      - DB_DATABASE=
+      - DB_USERNAME=
+      - DB_PASSWORD=
 
   php:
     build:
@@ -24,6 +24,6 @@ services:
     volumes:
       - ./src:/var/www/html 
     ports:
-      -9000:80
+      -80:80
 
 
