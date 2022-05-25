@@ -31,8 +31,6 @@ RUN composer install \
     --prefer-dist
 RUN composer require google/cloud-storage   
 RUN php artisan key:generate
-RUN php artisan migrate --force
-RUN php artisan admin:install
 RUN chmod -R 777 storage
 RUN php artisan db:seed --force
 RUN a2enmod rewrite &&  \
