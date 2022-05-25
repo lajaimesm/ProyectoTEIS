@@ -2,6 +2,7 @@ version:"3.7"
 services: 
   mysql:# 2do servici
     image: mysql:5.7
+    env_file: .env
     container_name: mysql 
     restart: unless-stopped 
     tty:true
