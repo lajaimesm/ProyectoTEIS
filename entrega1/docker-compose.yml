@@ -6,7 +6,7 @@ services:
     restart: unless-stopped 
     tty:true
     ports: 
-      -33069:3306# puerto local:puerto del servicio
+      -33069:3306
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
