@@ -1,4 +1,4 @@
-version:"3.7"# version del docker-compose(?)
+version:"3.7"
 services: 
   mysql:# 2do servici
     image: mysql:5.7
