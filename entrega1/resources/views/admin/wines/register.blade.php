@@ -13,7 +13,7 @@
               @endforeach
             </ul>
             @endif
-            <form method="POST" action="{{ route('admin.wines.upload') }}">
+            <form method="POST" action="{{ route('admin.wines.upload') }}" enctype="multipart/form-data">
               @csrf
               <label for="exampleInputName">{{ __('name') }}</label>
               <input type="text" class="form-control mb-2" placeholder="{{ __('enterName') }}" name="name" value="{{ old('name') }}" />
@@ -24,7 +24,7 @@
               <label for="exampleInputDiscount">{{ __('discount') }}</label>
               <input type="text" class="form-control mb-2" placeholder="{{ __('enterDiscount') }}" name="discount" value="{{ old('discount') }}" />
               <label for="exampleInputImage">{{ __('image') }}</label>
-              <input type="file" class="form-control mb-2" placeholder="{{ __('enterImage') }}" name="image" value="{{ old('image') }}" />
+              <input type="file" id="upload-file"  class="form-control mb-2" name="image" value="{{ old('image') }}">
               <input type="submit" class="mt-2 btn bg-primary text-white" value="{{ __('register') }}" />
             </form>
           </div>

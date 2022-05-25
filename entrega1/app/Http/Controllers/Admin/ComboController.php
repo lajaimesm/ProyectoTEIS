@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ImageController;
 use App\Models\Combo;
 use App\Models\Vasito;
 use App\Models\Wine;
@@ -34,7 +35,11 @@ class ComboController extends Controller
     public function save(Request $request)
     {
         Combo::validate($request);
-        Combo::create($request->only(["name","amount","price","image","discount","vasitoId","wineId"]));
+        $image = new ImageController();
+        $fileName = $image->store($request->file('image'));
+        $data = $request->only(["name","amount","price","discount","vasitoId","wineId"]);
+        $data["image"] = $fileName;
+        Combo::create($data);
         return view('admin.combos.upload');
     }
 
@@ -49,10 +54,15 @@ class ComboController extends Controller
 
     public function updated(Request $request)
     {
-        if ($request["image2"]!=NULL ){
-            $request["image"] = $request["image2"];
+        if ($request["image"] === NULL){
+            $data = $request->only(["id","name","amount","price","discount","vasito_id","wine_id"]);
+            $data["image"] = $request["imageNow"];
+        } else {
+            $image = new ImageController();
+            $fileName = $image->store($request->file('image'));
+            $data = $request->only(["id","name","amount","price","discount","vasito_id","wine_id"]);
+            $data["image"] = $fileName;
         }
-        $data = $request->only(["id","name","amount","price","image","discount","vasito_id","wine_id"]);
         $combo = Combo::findOrFail($data["id"]);
         foreach ($data as $key => $value) {
             $combo[$key] = $value;

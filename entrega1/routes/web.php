@@ -86,3 +86,6 @@ Route::get('/api/v2/vasitos', 'App\Http\Controllers\Api\KappuApiV2@index')->name
 Route::get('/api/v2/vasitos/{id}', 'App\Http\Controllers\Api\KappuApiV2@show')->name("api.v2.Kappu.show");
 Route::get('/api/v3/vasitos', 'App\Http\Controllers\Api\KappuApiV3@index')->name("api.v3.Kappu.index");
 Route::get('/api/v3/vasitos/{id}', 'App\Http\Controllers\Api\KappuApiV3@paginate')->name("api.v3.Kappu.paginate");
+
+
+Route::get('/xd','App\Http\Controllers\ImageController@store');

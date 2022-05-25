@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImageController;
 use Illuminate\Http\Request;
 use App\Models\Vasito;
 
@@ -30,7 +31,11 @@ class VasitoController extends Controller
     public function save(Request $request)
     {
         Vasito::validate($request);
-        Vasito::create($request->only(["name","amount","price","image","discount","description"]));
+        $image = new ImageController();
+        $fileName = $image->store($request->file('image'));
+        $data = $request->only(["name","amount","price","discount","description"]);
+        $data["image"] = $fileName;
+        Vasito::create($data);
         return view('admin.vasitos.upload');
     }
 
@@ -44,11 +49,16 @@ class VasitoController extends Controller
     }
 
     public function updated(Request $request)
-    {
-        if ($request["image2"]!=NULL ){
-            $request["image"] = $request["image2"];
+    {   
+        if ($request["image"] === NULL){
+            $data = $request->only(["id","name","amount","price","discount","description"]);
+            $data["image"] = $request["imageNow"];
+        } else {
+            $image = new ImageController();
+            $fileName = $image->store($request->file('image'));
+            $data = $request->only(["id","name","amount","price","discount","description"]);
+            $data["image"] = $fileName;
         }
-        $data = $request->only(["id","name","amount","price","image","discount","description"]);
         $vasito = Vasito::findOrFail($data["id"]);
         foreach ($data as $key => $value) {
             $vasito[$key] = $value;

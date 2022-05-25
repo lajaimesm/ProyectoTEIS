@@ -13,7 +13,7 @@
               @endforeach
             </ul>
             @endif
-            <form method="POST" action="{{ route('admin.combos.upload') }}">
+            <form method="POST" action="{{ route('admin.combos.upload') }}" enctype="multipart/form-data">
               @csrf
               <label for="exampleInputName">{{ __('name') }}</label>
               <input type="text" class="form-control mb-2" placeholder="{{ __('enterName') }}" name="name" value="{{ old('name') }}" />
@@ -28,7 +28,7 @@
               <label for="exampleInputIdWine">{{ __('idWine') }}</label>
               <input type="number" class="form-control mb-2" placeholder="{{ __('enterIdWine') }}" name="wineId" value="{{ old('wineId') }}" />
               <label for="exampleInputImage">{{ __('image') }}</label>
-              <input type="file" class="form-control mb-2" placeholder="{{ __('enterImage') }}" name="image" value="{{ old('image') }}" />
+              <input type="file" id="upload-file"  class="form-control mb-2" name="image" value="{{ old('image') }}">
               <input type="submit" class="mt-2 btn bg-primary text-white" value="{{ __('register') }}" />
             </form>
           </div>
