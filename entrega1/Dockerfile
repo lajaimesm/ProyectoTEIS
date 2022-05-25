@@ -3,8 +3,6 @@ RUN apt-get update -y && apt-get install -y openssl zip unzip git
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 WORKDIR /var/www/html
 
-COPY . ./
-COPY apache-conf/ /etc/apache2/
 
 RUN cp .env.example .env
 RUN sed -i "/DB_HOST=/c\DB_HOST=\"$DB_HOST\"" .env
@@ -27,10 +25,10 @@ RUN composer install \
 RUN composer require google/cloud-storage   
 RUN php artisan key:generate
 RUN chmod -R 777 storage
+RUN echo "ServerName vasitos.tk" >> /etc/apache2/apache2.conf
 RUN a2enmod rewrite
 RUN a2enmod rewrite &&  \
     a2dissite 000-default && \
     a2ensite vasitos.tk && \
     service apache2 restart
-RUN service apache2 reload
 
