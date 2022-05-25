@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImageController;
 use Illuminate\Http\Request;
 use App\Models\Wine;
-use Auth;
 
 class WineController extends Controller
 {
@@ -30,8 +30,13 @@ class WineController extends Controller
 
     public function save(Request $request)
     {
+
         Wine::validate($request);
-        Wine::create($request->only(["name","amount","price","image","discount"]));
+        $image = new ImageController();
+        $fileName = $image->store($request->file('image'));
+        $data = $request->only(["name","amount","price","discount"]);
+        $data["image"] = $fileName;
+        Wine::create($data);
         return view('admin.wines.upload');
     }
 
@@ -46,10 +51,15 @@ class WineController extends Controller
 
     public function updated(Request $request)
     {
-        if ($request["image2"]!=NULL ){
-            $request["image"] = $request["image2"];
+        if ($request["image"] === NULL){
+            $data = $request->only(["id","name","amount","price","discount"]);
+            $data["image"] = $request["imageNow"];
+        } else {
+            $image = new ImageController();
+            $fileName = $image->store($request->file('image'));
+            $data = $request->only(["id","name","amount","price","discount"]);
+            $data["image"] = $fileName;
         }
-        $data = $request->only(["id","name","amount","price","image","discount"]);
         $wine = Wine::findOrFail($data["id"]);
         foreach ($data as $key => $value) {
             $wine[$key] = $value;
@@ -64,26 +74,4 @@ class WineController extends Controller
         return view('admin.wines.delete');
     }
 
-    public function wineHighDiscount()
-    
-    {
-        $viewData = [];
-        $viewData["wines"] = Wine::orderBy('discount', 'DESC')->get();
-        return view('admin.wines.highDiscount')->with("viewData", $viewData);
-     
-    }
-
-    public function wineNameSearch(Request $request)
-    {
-        $viewData = [];
-        $search = $request->input('search');
-        $viewData["wines"] = Wine::query()->where('name', 'LIKE', "%{$search}%")
-        ->orWhere('price', 'LIKE', "%{$search}%")->get();
-        return view('admin.wines.nameSearch')->with("viewData", $viewData);
-    }
-
-    public function wineNameSearchConsult()
-    {
-        return view('admin.wines.nameSearchConsult');
-    }
 }

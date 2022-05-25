@@ -96,9 +96,19 @@ class Wine extends Model
         $this->attributes['image'] = $image;
     }
 
+    public function getItemId()
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setItemId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
     public function item()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsToMany(Item::class);
     }
 
     public function getItems()
@@ -113,7 +123,7 @@ class Wine extends Model
 
     public function combo()
     {
-        return $this->hasMany(Combo::class);
+        return $this->belongsToMany(Combo::class);
     }
 
     public function getCombo()

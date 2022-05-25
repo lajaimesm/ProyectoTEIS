@@ -20,10 +20,10 @@ return new class extends Migration
             $table->float('price');
             $table->float('discount');
             $table->string('image');
-            $table->unsignedBigInteger('vasito_id')->nullable();
-            $table->foreign('vasito_id', 'fk_orders_vasitos')->references('id')->on('vasitos')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('wine_id')->nullable();
-            $table->foreign('wine_id', 'fk_orders_wines')->references('id')->on('wines')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('vasitoId')->nullable();
+            $table->foreign('vasitoId', 'fk_orders_vasitos')->references('id')->on('vasitos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('wineId')->nullable();
+            $table->foreign('wineId', 'fk_orders_wines')->references('id')->on('wines')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 @section('content')
 <h1>Hish Discount in wines</h1>
 <div class="row">
@@ -8,7 +8,7 @@
       <img src= {{ $wine->getImage() }} >
       <div class="card-body text-center">
         <a href="{{ route('wines.show', ['id'=> $wine->getId()]) }}"
-          class="btn bg-primary text-black">{{__('name')}}: {{ $wine->getName()}} {{__('discount')}}: {{ $wine->getDiscount()}} {{__('price')}}: {{ $wine->getPrice()}}</a>
+          class="mt-2 btn bg-primary text-white">{{__('name')}}: {{ $wine->getName()}} {{__('discount')}}: {{ $wine->getDiscount()}} {{__('price')}}: {{ $wine->getPrice()}}</a>
       </div>
     </div>
   </div>

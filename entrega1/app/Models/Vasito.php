@@ -31,7 +31,7 @@ class Vasito extends Model
             "name" => "required|max:255",
             "amount" => "required|numeric|gte:0",
             "price" => "required|numeric|gte:0",
-            "image" => "required",
+            'image' => 'required',
             "discount" => "required|gte:0|max:0.99",
             "description"=> "required|max:255"
         ]);
@@ -109,7 +109,7 @@ class Vasito extends Model
 
     public function item()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsToMany(Item::class);
     }
 
     public function getItems()
@@ -121,10 +121,20 @@ class Vasito extends Model
     {
         $this->items = $items;
     }
+
+    public function getItemId()
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setItemId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
     
     public function combo()
     {
-        return $this->hasMany(Combo::class);
+        return $this->belongsToMany(Combo::class);
     }
 
     public function getCombo()

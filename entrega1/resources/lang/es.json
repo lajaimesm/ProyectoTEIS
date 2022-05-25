@@ -1,0 +1,44 @@
+{
+    "welcome":"Bienvenido",
+    "homeLayout": "Inicio",
+    "registerUser": "Registrarse",
+    "loginUser": "Iniciar sesión",
+    "logOutUser": "Cerrar sesión",
+
+    "id":"Id",
+    "amount":"Disponible",
+    "name":"Nombre",
+    "price":"Precio",
+    "discount":"Descuento",
+    "image":"Imagen",
+    "description":"Descripcion",
+
+
+    "registerVasitos": "Registrar Vasitos",
+    "registerWines": "Registrar Vinos",
+    "vasitosList": "Vasitos",
+    "winesList": "Vinos",
+
+    "lowPriceVasito": "Vasito de menor precio",
+    "highDiscountWines": "Vinos con mayor descuento",
+    "cart": "Carrito",
+    "searchWinesNames": "Buscar vinos por nombre",
+    "searchVasitosPrices": "Buscar vasitos por precio",
+
+    "elementDeleted":"Elemento eliminado correctamente",
+    "elementUpdated":"Elemento actualizado correctamente",
+    "elementCreated":"Elemento creado correctamente",
+
+    "enterVasito":"Ingreso los datos del vasito",
+    "enterWine":"Ingreso los datos del vino",
+
+    "delete":"Eliminar",
+    "update":"Actualizar",
+
+    "availableProducts":"Productos disponibles",
+    "pay":"Pago",
+    "addToCart":"Añadir al carrito",
+    "productsInCart":"Productos en el carrito",
+    "removeAllProducts":"Remover todos los prodcutos"
+
+}

@@ -17,14 +17,14 @@ class Combo extends Model
      * $this->attributes['discount'] - float - contains the combo discount
      * $this->attributes['image'] - string - contains the combo image url
      * $this->attributes['item_id'] - int - contains the item foreign key
-     * $this->attributes['wine_id'] - int - contains the wine foreign key
-     * $this->attributes['vasito_id'] - int - contains the vasito foreign key
+     * $this->attributes['wineId'] - int - contains the wine foreign key
+     * $this->attributes['vasitoId'] - int - contains the vasito foreign key
      * $this->items - items - contains the associated items
      * $this->vasito - vasitos - contains the associated vasitos
      * $this->wine - wines - contains the associated wines
     */
 
-    protected $fillable = ['name','amount','price','discount','image'];
+    protected $fillable = ['name','amount','price','discount','image','vasitoId','wineId'];
 
     public static function validate($request)
     {
@@ -33,7 +33,7 @@ class Combo extends Model
             "amount" => "required|numeric|gte:0",
             "price" => "required|numeric|gte:0",
             "discount" => "required|gt:0|lt:1",
-            "image" => "required|url"
+            "image" => "required"
         ]);
     }
 
@@ -97,38 +97,68 @@ class Combo extends Model
         $this->attributes['image'] = $image;
     }
 
-    public function setWineId($wine_id)
+    public function setWineId($wineId)
     {
-        $this->attributes['wine_id'] = $wine_id;
+        $this->attributes['wineId'] = $wineId;
     }
 
     public function getWineId()
     {
-        return $this->attributes['wine_id'];
+        return $this->attributes['wineId'];
     }
 
-    public function setVasitoId($vasito_id)
+    public function setVasitoId($vasitoId)
     {
-        $this->attributes['vasito_id'] = $vasito_id;
+        $this->attributes['vasitoId'] = $vasitoId;
     }
 
     public function getVasitoId()
     {
-        return $this->attributes['vasito_id'];
+        return $this->attributes['vasitoId'];
     }
 
     public function item()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsToMany(Item::class);
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function setItems($items)
+    {
+        $this->items = $items;
     }
 
     public function wine()
     {
-        return $this->belongsTo(Wine::class);
+        return $this->hasOne(Wine::class);
+    }
+
+    public function getWines()
+    {
+        return $this->wines;
+    }
+
+    public function setWines($wines)
+    {
+        $this->wines = $wines;
     }
     
     public function vasito()
     {
-        return $this->belongsTo(Vasito::class);
+        return $this->hasOne(Vasito::class);
+    }
+
+    public function getVasito()
+    {
+        return $this->vasito;
+    }
+
+    public function setVasito($vasito)
+    {
+        $this->vasito = $vasito;
     }
 }
