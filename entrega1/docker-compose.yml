@@ -1,6 +1,6 @@
 version:"3.7"
 services: 
-  mysql:# 2do servici
+  mysql:
     image: mysql:5.7
     env_file: .env
     container_name: mysql 
@@ -15,15 +15,11 @@ services:
       - DB_DATABASE=
       - DB_USERNAME=
       - DB_PASSWORD=
-
-  php:
-    build:
-      context: .
-      dockerfile: Dockerfile 
-    container_name: php 
-    volumes:
-      - ./src:/var/www/html 
+  
+  vasitos-group:
+    container_name: heap-group
+    image: luisangeljaimes/vasitos:latest .
+    restart: unless-stopped
     ports:
-      -80:80
-
+      - 80:80
 
