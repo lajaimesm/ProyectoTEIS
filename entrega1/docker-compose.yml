@@ -1,0 +1,28 @@
+version:"3.7"# version del docker-compose(?)
+services: 
+  mysql:# 2do servici
+    image: mysql:5.7
+    container_name: mysql 
+    restart: unless-stopped 
+    tty:true
+    ports: 
+      -33069:3306# puerto local:puerto del servicio
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE:'homestead'
+      MYSQL_USER:'homestead'
+      MYSQL_PASSWORD:'secret'
+      MYSQL_ROOT_PASSWORD:'secret.root'
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    container_name: php 
+    volumes:
+      - ./src:/var/www/html 
+    ports:
+      -9000:80
+
+
