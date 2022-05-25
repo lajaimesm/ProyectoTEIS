@@ -76,6 +76,7 @@ Route::get('/cart/addCombo/{id}', 'App\Http\Controllers\User\CartController@addC
 Route::get('/cart/removeAll/', 'App\Http\Controllers\User\CartController@removeAll')->name("cart.removeAll");
 Route::get('/cart/purchase', 'App\Http\Controllers\User\CartController@purchase')->name("cart.purchase");
 
+//Routes Orders
 Route::get('/orders/list', 'App\Http\Controllers\User\OrderController@index')->name("orders.list");
 Route::get('/orders/show/{id}', 'App\Http\Controllers\User\OrderController@show')->name("orders.show");
 
@@ -87,5 +88,3 @@ Route::get('/api/v2/vasitos/{id}', 'App\Http\Controllers\Api\KappuApiV2@show')->
 Route::get('/api/v3/vasitos', 'App\Http\Controllers\Api\KappuApiV3@index')->name("api.v3.Kappu.index");
 Route::get('/api/v3/vasitos/{id}', 'App\Http\Controllers\Api\KappuApiV3@paginate')->name("api.v3.Kappu.paginate");
 
-
-Route::get('/xd','App\Http\Controllers\ImageController@store');

@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-<h1>Top 3 Vasitos with lower price</h1>
+<h1>{{__('top3LowVasito')}}</h1>
 <div class="row">
   @foreach ($viewData["vasitos"] as $vasito)
   <div class="col-md-4 col-lg-3 mb-3">

@@ -15,7 +15,7 @@
         <p class="card-text">{{__('wine')}}: {{ $viewData["wine"]->getName() }}</p>
   </div>
   <div>
-    <a href="{{ route('cart.addCombo',['id' => $viewData['combo']->getId()]) }}">{{__('addToCart')}}</a>
+    <a class="mt-2 btn bg-primary text-white" href="{{ route('cart.addCombo',['id' => $viewData['combo']->getId()]) }}">{{__('addToCart')}}</a>
   </div>
 </div>
 @endsection

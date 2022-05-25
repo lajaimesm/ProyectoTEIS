@@ -142,7 +142,7 @@ class CartController extends Controller
             $order->save();
             $viewData = [];
             $viewData["order"] = $order;
-            return view('orders.show')->with("viewData", $viewData);
+            return redirect()->route('orders.show', ['id' => $order->getId()]);
         }
     }
 

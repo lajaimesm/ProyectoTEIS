@@ -45,8 +45,8 @@
       <h1>
         {{__('total')}} - {{$viewData["total"]}}
       </h1>
-      <a href="{{ route('cart.removeAll') }}">{{__('removeAllProducts')}}</a>
-      <a href="{{ route('cart.purchase') }}">{{__('pay')}}</a>
+      <a class="mt-2 btn bg-primary text-white" href="{{ route('cart.removeAll') }}">{{__('removeAllProducts')}}</a>
+      <a class="mt-2 btn bg-primary text-white" href="{{ route('cart.purchase') }}">{{__('pay')}}</a>
     </div>
   </div>
 </div>

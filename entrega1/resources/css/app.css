@@ -169,6 +169,11 @@ nav {
     min-height: 480px;
 }
 
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
 .header_section_1 {
     -webkit-box-flex: 1;
     flex-grow: 1;

@@ -4,6 +4,11 @@
     "registerUser": "Register",
     "loginUser": "Login",
     "logOutUser": "LogOut",
+    "email":"Email Address",
+    "password":"Password",
+    "confirmPassword":"Confirm Password",
+    "remenberMe":"Remember Me",
+    "forgotPassword":"Forgot Your Password?",
 
     "id":"Id",
     "enterAmount":"Enter Amount",
@@ -24,10 +29,20 @@
     
     "registerVasitos": "Register Vasitos",
     "registerWines": "Register Wines",
+    "registerCombos": "Register Combos",
     "vasitosList": "Vasitos",
     "winesList": "Wines",
+    "combosList": "Combos",
+    "ordersList": "Orders",
     "vasitos": "Vasitos",
     "wines": "Wines",
+    "combos": "Combos",
+    "vasito": "Vasito",
+    "wine": "Wine",
+    "combo": "Combo",
+
+    "idVasito":"ID Vasito",
+    "idWine":"ID Wine",
 
     "lowPriceVasito": "Low Price Vasito",
     "top3LowVasito": "Top 3 Vasitos with lower price",
@@ -53,6 +68,14 @@
     "addToCart":"Add to Cart",
     "productsInCart":"Products In Cart",
     "removeAllProducts":"Remove All Products From Cart",
+    "total":"Total",
 
-    "goBack":"Go back to the home page"
+    "verifyEmail":"Verify Your Email Address",
+    "verificationLink":"A fresh verification link has been sent to your email address.",
+    "checkEmail":"Before proceeding, please check your email for a verification link. If you did not receive the email",
+    "requestLink":"click here to request another",
+    
+    "admin":"Admin",
+    "goBack":"Go back to the home page",
+    "adminPanel":"Admin Panel"
 }

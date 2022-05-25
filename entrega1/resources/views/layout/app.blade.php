@@ -20,7 +20,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="{{ route('home.index') }}">{{__('Home') }}</a>
+          <a class="nav-link active" href="{{ route('home.index') }}">{{__('homeLayout') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           @guest
           <a class="nav-link active" href="{{ route('login') }}">{{__('loginUser') }}</a>
@@ -34,6 +34,8 @@
           </form>
           <a class="nav-link active" href="{{ route('vasitos.list') }}">{{__('vasitosList') }}</a>
           <a class="nav-link active" href="{{ route('wines.list') }}"> {{__('winesList') }}</a>
+          <a class="nav-link active" href="{{ route('combos.list') }}"> {{__('combosList') }}</a>
+          <a class="nav-link active" href="{{ route('orders.list') }}"> {{__('ordersList') }}</a>
           <a class="nav-link active" href="{{ route('vasitos.lowPrice') }}">{{__('lowPriceVasito') }}</a>
           <a class="nav-link active" href="{{ route('wines.highDiscount') }}">{{__('highDiscountWines') }}</a>
           <a class="nav-link active" href="{{ route('vasitos.searchPriceConsult') }}">{{__('searchVasitosPrices') }}</a>
@@ -51,7 +53,7 @@
 
   <!-- header -->
 
-  <div class="container my-4">
+  <div class="row">
     @yield('content')
   </div>
 

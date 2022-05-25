@@ -20,6 +20,11 @@ li {
     color:#fff;
 }
 
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
 .copyright {
     background-color: #212121;
 }

@@ -13,7 +13,7 @@
         <p class="card-text">{{__('discount')}}: {{ $viewData["wine"]->getDiscount() }}</p>
   </div>
   <div>
-    <a href="{{ route('cart.addWine',['id' => $viewData['wine']->getId()]) }}">{{__('addToCart')}}</a>
+    <a class="mt-2 btn bg-primary text-white" href="{{ route('cart.addWine',['id' => $viewData['wine']->getId()]) }}">{{__('addToCart')}}</a>
   </div>
 </div>
 @endsection

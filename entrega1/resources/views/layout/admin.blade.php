@@ -23,9 +23,9 @@
       <ul class="nav flex-column">
         <li><a href="{{ route('admin.vasitos.register')}}" class="nav-link text-white">- {{__('registerVasitos') }}</a></li>
         <li><a href="{{ route('admin.wines.register')}}" class="nav-link text-white">- {{__('registerWines') }}</a></li>
+        <li><a href="{{ route('admin.combos.register')}}" class="nav-link text-white">- {{__('registerCombos') }}</a></li>
         <li><a href="{{ route('admin.vasitos.list')}}" class="nav-link text-white">- {{__('vasitosList') }}</a></li>
         <li><a href="{{ route('admin.wines.list')}}" class="nav-link text-white">- {{__('winesList') }}</a></li>
-        <li><a href="{{ route('admin.combos.register')}}" class="nav-link text-white">- {{__('registerCombos') }}</a></li>
         <li><a href="{{ route('admin.combos.list')}}" class="nav-link text-white">- {{__('combosList') }}</a></li>
         <li>
           <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">{{__('goBack') }}</a>
