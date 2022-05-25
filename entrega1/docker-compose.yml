@@ -1,0 +1,25 @@
+version:"3.7"
+services: 
+  mysql:
+    image: mysql:5.7
+    env_file: .env
+    container_name: mysql 
+    restart: unless-stopped 
+    tty:true
+    ports: 
+      -33069:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - DB_HOST=
+      - DB_DATABASE=
+      - DB_USERNAME=
+      - DB_PASSWORD=
+  
+  vasitos-group:
+    container_name: heap-group
+    image: luisangeljaimes/vasitos:latest .
+    restart: unless-stopped
+    ports:
+      - 80:80
+
