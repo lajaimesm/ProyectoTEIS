@@ -13,7 +13,7 @@ WORKDIR /var/www/html
 
 COPY . ./
 
-RUN cp apache-conf/ /etc/apache2/
+COPY ./apache-conf/ /etc/apache2/
 
 RUN cp .env.example .env
 RUN sed -i "/DB_HOST=/c\DB_HOST=\"$DB_HOST\"" .env
